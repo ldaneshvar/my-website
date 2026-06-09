@@ -4,6 +4,47 @@
   'use strict';
 
   /* ---------------------------------------------------------------
+     Smooth scroll via Lenis
+     Lenis is loaded from CDN just before this script. If it's
+     available and the user hasn't opted into reduced motion,
+     we initialize it and drive it with requestAnimationFrame.
+     --------------------------------------------------------------- */
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let lenis = null;
+
+  if (typeof Lenis !== 'undefined' && !prefersReduced) {
+    lenis = new Lenis({
+      duration: 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
+    });
+
+    const raf = (time) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+    requestAnimationFrame(raf);
+  }
+
+  // Hijack anchor links so they use Lenis-driven scroll
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href || href === '#') return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      if (lenis) {
+        lenis.scrollTo(target, { offset: -80 });
+      } else {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ---------------------------------------------------------------
      Nav: mobile toggle + hairline on scroll
      --------------------------------------------------------------- */
   const nav = document.getElementById('nav');
