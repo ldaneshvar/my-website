@@ -399,6 +399,48 @@ em { font-style: italic; }
   margin-block-start: clamp(var(--space-8), 6vw, var(--space-16));
   hyphens: none;
   overflow-wrap: normal;
+  transition: font-variation-settings 900ms var(--ease-out-quart);
+  cursor: default;
+}
+
+.hero__headline:hover {
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+}
+
+/* Editorial cursor — blinks 5 times after the name, then fades */
+.hero__cursor {
+  display: inline-block;
+  width: 0.03em;
+  height: 0.72em;
+  background: var(--accent);
+  vertical-align: baseline;
+  margin-inline-start: 0.04em;
+  border-radius: 1px;
+  opacity: 0;
+  animation:
+    hero-cursor-blink 0.8s linear 6 forwards,
+    hero-cursor-out 0.8s 4.8s ease-out forwards;
+  will-change: opacity;
+}
+
+@keyframes hero-cursor-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes hero-cursor-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__cursor {
+    animation: none;
+    opacity: 0;
+  }
+  .hero__headline {
+    transition: none;
+  }
 }
 
 .hero__lede {
