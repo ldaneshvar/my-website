@@ -78,6 +78,34 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 
 /* ---------------------------------------------------------------
+   Scroll-triggered reveals
+   Elements with .reveal start invisible and translated down,
+   then fade up when they enter the viewport.
+   Only active when JS has marked <html> as .js (progressive
+   enhancement — no JS means content is just visible).
+   --------------------------------------------------------------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms var(--ease-out-quart),
+              transform 700ms var(--ease-out-quart);
+  will-change: opacity, transform;
+}
+
+.js .reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------------------------------------------------------------
    Base
    --------------------------------------------------------------- */
 html {

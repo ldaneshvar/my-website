@@ -79,4 +79,28 @@
      --------------------------------------------------------------- */
   const yearEl = document.querySelector('[data-year]');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  /* ---------------------------------------------------------------
+     Scroll-triggered reveals
+     Elements with class="reveal" fade up when scrolled into view.
+     Uses IntersectionObserver — no library, no scroll listener.
+     --------------------------------------------------------------- */
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && reveals.length) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+    reveals.forEach(el => observer.observe(el));
+  } else {
+    // Fallback: no IntersectionObserver support, show everything immediately
+    reveals.forEach(el => el.classList.add('is-revealed'));
+  }
 })();
