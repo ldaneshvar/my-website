@@ -112,6 +112,11 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
   overflow-x: clip;
+  /* Hanging punctuation — magazine typesetting. Periods and commas
+     hang at line ends; opening/closing quotes hang in the margin.
+     Currently supported in Safari/WebKit; Chrome and Firefox are
+     working on it (the property is gracefully ignored elsewhere). */
+  hanging-punctuation: first allow-end last;
 }
 
 body {
