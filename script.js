@@ -122,6 +122,28 @@
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   /* ---------------------------------------------------------------
+     Footer: live San Francisco time
+     Updates every minute. Uses Intl.DateTimeFormat with the
+     America/Los_Angeles timezone so it adjusts for daylight saving
+     automatically and is accurate no matter where the visitor is.
+     --------------------------------------------------------------- */
+  const sfTimeEl = document.querySelector('[data-sf-time]');
+  if (sfTimeEl) {
+    const updateSFTime = () => {
+      const raw = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Los_Angeles',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+      }).format(new Date());
+      const clean = raw.replace(' ', '').toLowerCase();
+      sfTimeEl.textContent = `${clean} in San Francisco`;
+    };
+    updateSFTime();
+    setInterval(updateSFTime, 60_000);
+  }
+
+  /* ---------------------------------------------------------------
      Scroll-triggered reveals
      Elements with class="reveal" fade up when scrolled into view.
      Uses IntersectionObserver — no library, no scroll listener.
