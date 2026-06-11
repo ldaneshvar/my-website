@@ -1111,6 +1111,76 @@ em { font-style: italic; }
 .contact__location { color: var(--ink-muted); }
 
 /* ---------------------------------------------------------------
+   Now page
+   --------------------------------------------------------------- */
+.now {
+  padding-block: clamp(var(--space-16), 10vw, var(--space-32));
+}
+
+.now__header {
+  margin-block-end: clamp(var(--space-12), 6vw, var(--space-16));
+}
+
+.now__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  font-weight: 350;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  margin: var(--space-4) 0 0;
+  font-variation-settings: 'opsz' 144, 'SOFT' 25;
+  text-wrap: balance;
+  max-width: 18ch;
+}
+
+.now__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: 56ch;
+}
+
+.now__entry {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 0.8vw + 0.9rem, 1.45rem);
+  font-weight: 350;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  font-variation-settings: 'opsz' 36, 'SOFT' 40;
+  color: var(--ink);
+  margin: 0;
+}
+
+.now__entry--small {
+  font-size: clamp(0.95rem, 0.4vw + 0.85rem, 1.1rem);
+  color: var(--ink-muted);
+}
+
+.now__label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  margin-inline-end: 0.2em;
+  font-variation-settings: 'opsz' 36, 'SOFT' 60;
+}
+
+.now__footnote {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin-block-start: clamp(var(--space-16), 8vw, var(--space-20));
+  max-width: 40ch;
+}
+
+.now__footnote a {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+/* ---------------------------------------------------------------
    Footer
    --------------------------------------------------------------- */
 .footer {
