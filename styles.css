@@ -573,6 +573,27 @@ em { font-style: italic; }
   color: var(--ink);
 }
 
+.about__right {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__portrait {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  margin-block-end: var(--space-8);
+  background: var(--bg-deep);
+}
+
+@media (max-width: 800px) {
+  .about__portrait {
+    max-width: 240px;
+  }
+}
+
 .about__details {
   margin: 0;
   padding: 0;
