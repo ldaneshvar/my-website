@@ -387,10 +387,11 @@ em { font-style: italic; }
 
 .hero__divider {
   display: inline-block;
-  width: 24px;
-  height: 1px;
-  background: var(--ink-muted);
-  vertical-align: middle;
+  color: var(--ink-muted);
+  font-size: var(--step--1);
+  font-weight: 500;
+  vertical-align: baseline;
+  margin-inline: var(--space-1);
 }
 
 .hero__headline {
