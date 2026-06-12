@@ -1176,12 +1176,17 @@ em { font-style: italic; }
 }
 
 .now__gallery {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(var(--space-6), 3vw, var(--space-10));
+  column-count: 2;
+  column-gap: var(--space-3);
   margin: 0;
   margin-block-start: clamp(var(--space-12), 6vw, var(--space-16));
   max-width: 36rem;
+}
+
+@media (max-width: 600px) {
+  .now__gallery {
+    column-count: 1;
+  }
 }
 
 .now__photo {
@@ -1189,6 +1194,12 @@ em { font-style: italic; }
   height: auto;
   display: block;
   background: var(--bg-deep);
+  margin-block-end: var(--space-3);
+  break-inside: avoid;
+}
+
+.now__gallery-caption {
+  column-span: all;
 }
 
 .now__gallery-caption {
