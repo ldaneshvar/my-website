@@ -1128,9 +1128,19 @@ em { font-style: italic; }
   letter-spacing: -0.035em;
   line-height: 1;
   margin: var(--space-4) 0 0;
-  font-variation-settings: 'opsz' 144, 'SOFT' 25;
+  font-variation-settings: 'opsz' 144, 'SOFT' 25, 'WONK' 0;
   text-wrap: balance;
   max-width: 18ch;
+  transition: font-variation-settings 900ms var(--ease-out-quart);
+  cursor: default;
+}
+
+.now__title:hover {
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .now__title { transition: none; }
 }
 
 .now__body {
