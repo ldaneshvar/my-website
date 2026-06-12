@@ -1176,33 +1176,19 @@ em { font-style: italic; }
 }
 
 .now__gallery {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--space-6), 3vw, var(--space-10));
   margin: 0;
   margin-block-start: clamp(var(--space-12), 6vw, var(--space-16));
   max-width: 36rem;
 }
 
-@media (min-width: 700px) {
-  .now__gallery {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 .now__photo {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  height: auto;
   display: block;
   background: var(--bg-deep);
-}
-
-@media (min-width: 700px) {
-  .now__photo--feature {
-    grid-column: 1 / -1;
-    aspect-ratio: 3 / 2;
-  }
 }
 
 .now__gallery-caption {
