@@ -1175,12 +1175,20 @@ em { font-style: italic; }
   font-variation-settings: 'opsz' 36, 'SOFT' 60;
 }
 
+.now__divider {
+  border: 0;
+  height: 1px;
+  background: var(--hairline);
+  max-width: 36rem;
+  margin: clamp(var(--space-12), 6vw, var(--space-16)) 0 0;
+}
+
 .now__gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-2);
   margin: 0;
-  margin-block-start: clamp(var(--space-12), 6vw, var(--space-16));
+  margin-block-start: clamp(var(--space-8), 4vw, var(--space-12));
   max-width: 36rem;
 }
 
