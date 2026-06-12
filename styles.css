@@ -1242,6 +1242,55 @@ em { font-style: italic; }
   font-weight: 500;
 }
 
+/* ---------------------------------------------------------------
+   404 page
+   --------------------------------------------------------------- */
+.not-found {
+  padding-block: clamp(var(--space-20), 12vw, var(--space-40));
+  min-height: 55vh;
+}
+
+.not-found__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 7vw + 1rem, 5.5rem);
+  font-weight: 350;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: var(--space-4) 0 0;
+  font-variation-settings: 'opsz' 144, 'SOFT' 25, 'WONK' 0;
+  text-wrap: balance;
+  max-width: 16ch;
+}
+
+.not-found__subhead {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1vw + 0.9rem, 1.7rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-muted);
+  margin: var(--space-6) 0 0;
+  font-variation-settings: 'opsz' 36, 'SOFT' 50;
+  letter-spacing: -0.012em;
+  max-width: 32ch;
+}
+
+.not-found__link {
+  display: inline-block;
+  margin-block-start: clamp(var(--space-10), 5vw, var(--space-16));
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.32em;
+  transition: text-decoration-color var(--dur-fast) var(--ease-out-quart);
+}
+
+.not-found__link:hover {
+  text-decoration-color: var(--accent-deep);
+}
+
 .now__gallery-caption {
   grid-column: 1 / -1;
   font-family: var(--font-display);
