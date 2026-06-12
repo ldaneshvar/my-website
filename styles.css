@@ -1181,6 +1181,7 @@ em { font-style: italic; }
   gap: var(--space-3);
   margin: 0;
   margin-block-start: clamp(var(--space-12), 6vw, var(--space-16));
+  max-width: 36rem;
 }
 
 @media (min-width: 700px) {
