@@ -1200,8 +1200,21 @@ em { font-style: italic; }
   background: var(--bg-deep);
 }
 
-.now__gallery-caption {
-  grid-column: 1 / -1;
+.now__gallery-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 0.8vw + 0.9rem, 1.45rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--accent);
+  font-variation-settings: 'opsz' 36, 'SOFT' 50;
+  letter-spacing: -0.01em;
+  margin: 0;
+  margin-block-start: clamp(var(--space-8), 4vw, var(--space-10));
+  max-width: 36rem;
+}
+
+.now__gallery-title + .now__gallery {
+  margin-block-start: var(--space-5);
 }
 
 .now__gallery-caption {
