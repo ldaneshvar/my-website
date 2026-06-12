@@ -1198,6 +1198,11 @@ em { font-style: italic; }
   object-fit: cover;
   display: block;
   background: var(--bg-deep);
+  /* Discourage casual mobile long-press save */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: auto;
 }
 
 .now__gallery-title {

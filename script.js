@@ -144,6 +144,17 @@
   }
 
   /* ---------------------------------------------------------------
+     Image protection
+     Disable right-click context menu on images (stops casual
+     "Save image as..."). Anyone with developer tools can still
+     download, but this deters lazy stealers.
+     --------------------------------------------------------------- */
+  document.querySelectorAll('img').forEach((img) => {
+    img.addEventListener('contextmenu', (e) => e.preventDefault());
+    img.setAttribute('draggable', 'false');
+  });
+
+  /* ---------------------------------------------------------------
      Scroll-triggered reveals
      Elements with class="reveal" fade up when scrolled into view.
      Uses IntersectionObserver — no library, no scroll listener.
