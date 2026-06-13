@@ -33,7 +33,7 @@ jobs:
           args: >-
             --verbose
             --no-progress
-            --accept 999
+            --accept 200,999
             'https://lidiadaneshvar.com'
             'https://lidiadaneshvar.com/now'
           fail: true
