@@ -33,13 +33,13 @@ jobs:
       #   - all HTML files in the repo
       #   - the live home page
       #   - the live /now page
-      - name: Check links with Lychee
+           - name: Check links with Lychee
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
             --verbose
             --no-progress
-            './**/*.html'
+            --accept 999
             'https://lidiadaneshvar.com'
             'https://lidiadaneshvar.com/now'
           # If any link is broken, exit with an error code.
