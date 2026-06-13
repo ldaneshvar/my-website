@@ -1,9 +1,9 @@
 # ─────────────────────────────────────────────────────────────────
 # Broken Link Checker
 #
-# Crawls every link on the site (in HTML files + on the live URLs)
-# and fails the workflow if any are broken (404s, dead PDFs, etc.).
-# GitHub emails the repo owner automatically when a workflow fails.
+# Crawls every link on the live site and fails the workflow if any
+# are broken (404s, dead PDFs, etc.). GitHub emails the repo owner
+# automatically when a workflow fails.
 # ─────────────────────────────────────────────────────────────────
 
 name: Check links
@@ -15,7 +15,6 @@ on:
     - cron: '0 16 * * 1'
 
   # Allows manual triggering from the GitHub Actions tab
-  # (useful for testing or running on demand)
   workflow_dispatch:
 
 # What steps should happen?
@@ -25,15 +24,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Get a copy of the repository files onto the runner
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Run Lychee, the link-checking tool, against:
-      #   - all HTML files in the repo
-      #   - the live home page
-      #   - the live /now page
-           - name: Check links with Lychee
+      - name: Check links with Lychee
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
@@ -42,6 +36,4 @@ jobs:
             --accept 999
             'https://lidiadaneshvar.com'
             'https://lidiadaneshvar.com/now'
-          # If any link is broken, exit with an error code.
-          # This causes GitHub to send a failure-notification email.
           fail: true
