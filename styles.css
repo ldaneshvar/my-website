@@ -1249,6 +1249,85 @@ em { font-style: italic; }
 }
 
 /* ---------------------------------------------------------------
+   /now archive section — "Previously" for old months
+   --------------------------------------------------------------- */
+.now__archive {
+  margin-block-start: clamp(var(--space-20), 10vw, var(--space-32));
+  padding-block-start: clamp(var(--space-10), 5vw, var(--space-12));
+  border-block-start: 1px solid var(--hairline);
+  max-width: 36rem;
+}
+
+.now__archive-header {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.now__archive-month {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.5vw + 0.8rem, 2rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: var(--space-2) 0 clamp(var(--space-8), 4vw, var(--space-10));
+  font-variation-settings: 'opsz' 96, 'SOFT' 40;
+}
+
+.now__archive-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: 56ch;
+}
+
+.now__archive-body .now__entry {
+  color: var(--ink-muted);
+}
+
+.now__archive-link {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+  margin: clamp(var(--space-10), 5vw, var(--space-12)) 0 0;
+}
+
+.now__archive-link a {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.now__archive-link a:hover {
+  text-decoration-color: var(--accent-deep);
+  text-decoration-thickness: 2px;
+}
+
+.now__archive-back-link {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.now__archive-return {
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------------
    404 page
    --------------------------------------------------------------- */
 .not-found {
