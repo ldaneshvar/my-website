@@ -1327,32 +1327,72 @@ em { font-style: italic; }
   color: var(--ink);
 }
 
-/* Small "Previous months" link at top-right of /now header */
-.now__previous-wrap {
-  max-width: 36rem;
-  text-align: end;
-  margin: var(--space-4) 0 0;
+/* ---------------------------------------------------------------
+   /now Then/Now comparison layout
+   Side-by-side split showing last month vs current month.
+   Stacks on mobile.
+   --------------------------------------------------------------- */
+.now__comparison {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(var(--space-10), 6vw, var(--space-16));
+  max-width: 60rem;
 }
 
-.now__previous {
+@media (min-width: 800px) {
+  .now__comparison {
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(var(--space-8), 4vw, var(--space-12));
+  }
+}
+
+.now__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.now__column-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: 0 0 clamp(var(--space-6), 3vw, var(--space-8));
+  padding-block-end: var(--space-4);
+  border-block-end: 1px solid var(--hairline);
+}
+
+.now__column-label {
   font-family: var(--font-body);
   font-size: var(--step--1);
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--ink-muted);
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.28em;
-  transition: color var(--dur-fast) var(--ease-out-quart),
-              text-decoration-color var(--dur-fast) var(--ease-out-quart),
-              text-decoration-thickness var(--dur-fast) var(--ease-out-quart);
 }
 
-.now__previous:hover {
+.now__column--now .now__column-label {
+  color: var(--accent);
+}
+
+.now__column-month {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.5vw + 0.8rem, 2rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.02em;
   color: var(--ink);
-  text-decoration-color: var(--accent-deep);
-  text-decoration-thickness: 2px;
+  font-variation-settings: 'opsz' 72, 'SOFT' 40;
+}
+
+.now__column .now__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: 32ch;
+}
+
+/* Muted styling for the "Then" column so "Now" reads as primary */
+.now__column--then .now__entry {
+  color: var(--ink-muted);
 }
 
 /* ---------------------------------------------------------------
