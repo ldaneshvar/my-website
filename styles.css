@@ -1327,10 +1327,10 @@ em { font-style: italic; }
   color: var(--ink);
 }
 
-/* Small "Then" link at top-right of /now header */
+/* Small "Then" link at top-left of /now header */
 .now__previous-wrap {
   max-width: 36rem;
-  text-align: end;
+  text-align: start;
   margin: var(--space-4) 0 0;
 }
 
