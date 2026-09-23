@@ -1423,12 +1423,6 @@ em { font-style: italic; }
   pointer-events: auto;
 }
 
-.modeling__photo--feature {
-  column-span: all;
-  max-width: min(760px, 100%);
-  margin-inline: auto;
-  margin-block: clamp(var(--space-4), 3vw, var(--space-8));
-}
 
 .modeling__experience {
   max-width: 36rem;
