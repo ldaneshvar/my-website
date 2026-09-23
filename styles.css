@@ -1593,3 +1593,33 @@ em { font-style: italic; }
   margin: 0;
   font-style: italic;
 }
+
+/* ============================================================
+   /modeling — inverted palette (black bg, cream text)
+   Layout unchanged; only colors flip.
+   ============================================================ */
+
+.page-modeling {
+  --bg:          oklch(0.06 0.004 60);
+  --bg-deep:     oklch(0.12 0.008 60);
+  --ink:         oklch(0.95 0.012 78);
+  --ink-muted:   oklch(0.70 0.014 70);
+  --ink-soft:    oklch(0.55 0.012 60);
+  --hairline:    oklch(0.28 0.015 60);
+  --accent:      oklch(0.72 0.140 42);
+  --accent-deep: oklch(0.80 0.130 42);
+  --accent-wash: oklch(0.22 0.030 40);
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.page-modeling .nav {
+  background: var(--bg);
+  border-bottom-color: var(--hairline);
+}
+
+.page-modeling .footer {
+  background: var(--bg);
+  border-top: 1px solid var(--hairline);
+  color: var(--ink-muted);
+}
