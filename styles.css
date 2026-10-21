@@ -1940,22 +1940,42 @@ em { font-style: italic; }
   max-width: none;
 }
 
+.portfolio__section {
+  margin-block-end: clamp(var(--space-12), 7vw, var(--space-20));
+}
+
+.portfolio__section-label {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0 0 clamp(var(--space-5), 3vw, var(--space-8));
+  padding-block-end: var(--space-4);
+  border-bottom: 1px solid var(--hairline);
+}
+
 .portfolio__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: clamp(var(--space-6), 4vw, var(--space-10)) var(--space-3);
   padding-inline: clamp(var(--space-3), 3vw, var(--space-8));
-  margin: 0 0 clamp(var(--space-16), 8vw, var(--space-24));
   max-width: 1600px;
   margin-inline: auto;
 }
 
 @media (min-width: 700px) {
-  .portfolio__grid { grid-template-columns: repeat(2, 1fr); }
+  .portfolio__grid--design { grid-template-columns: repeat(2, 1fr); }
+  .portfolio__grid--videos { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 1000px) {
-  .portfolio__grid { grid-template-columns: repeat(3, 1fr); }
+  .portfolio__grid--design { grid-template-columns: repeat(3, 1fr); }
+}
+
+.portfolio__thumb--video {
+  aspect-ratio: 16 / 9;
 }
 
 .portfolio__card {
