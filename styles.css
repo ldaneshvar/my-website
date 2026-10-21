@@ -1783,7 +1783,7 @@ em { font-style: italic; }
 
 .photography__header {
   margin-block: clamp(var(--space-8), 6vw, var(--space-16)) clamp(var(--space-12), 8vw, var(--space-20));
-  text-align: right;
+  text-align: center;
 }
 
 .photography__title {
