@@ -132,12 +132,17 @@
     aspect-ratio: 9 / 16;
     max-width: 420px;
   }
+  @media (min-width: 800px) {
+    .pv-mag-row--flip .pv-card--vert {
+      transform: translateX(-100px);
+    }
+  }
   .pv-mag-text {
     padding-block: var(--space-4);
   }
   .pv-mag-text h3 {
     font-family: var(--font-display);
-    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    font-size: clamp(1.6rem, 2.7vw, 2.1rem);
     font-weight: 350;
     letter-spacing: -0.015em;
     line-height: 1.1;
@@ -202,7 +207,7 @@
   .pv-card .pv-meta h3 {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: var(--step-1);
+    font-size: 1.5rem;
     letter-spacing: -0.01em;
     line-height: 1.2;
     margin: 0 0 var(--space-2);
