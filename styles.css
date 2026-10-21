@@ -2107,6 +2107,88 @@ em { font-style: italic; }
   object-fit: cover;
 }
 
+/* Magazine spread layout for Film & Direction */
+.portfolio__spread {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--space-10), 6vw, var(--space-16));
+  padding-inline: clamp(var(--space-3), 3vw, var(--space-8));
+  max-width: 1500px;
+  margin-inline: auto;
+}
+
+.portfolio__spread-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+@media (min-width: 800px) {
+  .portfolio__spread-row { grid-template-columns: 2fr 1fr; }
+  .portfolio__spread-row--flip { grid-template-columns: 1fr 2fr; }
+  .portfolio__spread-row--flip .portfolio__spread-video { order: 2; }
+  .portfolio__spread-row--flip .portfolio__spread-text { order: 1; text-align: right; }
+}
+
+.portfolio__spread-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000;
+}
+
+.portfolio__spread-video--vert video {
+  aspect-ratio: 9 / 16;
+  max-width: 420px;
+}
+
+/* Row with vertical video: text column matches landscape rows (1fr), 100px spacer, video */
+@media (min-width: 800px) {
+  .portfolio__spread-row--vertical {
+    grid-template-columns: 1fr 100px 2fr;
+    column-gap: 24px;
+    align-items: center;
+  }
+  .portfolio__spread-row--vertical .portfolio__spread-text {
+    grid-column: 1;
+    text-align: right;
+    padding-block: 0;
+  }
+  .portfolio__spread-row--vertical .portfolio__spread-video {
+    grid-column: 3;
+    justify-self: start;
+    width: 420px;
+  }
+}
+
+.portfolio__spread-text {
+  padding-block: var(--space-4);
+}
+
+.portfolio__spread-text h3 {
+  font-family: var(--font-display);
+  font-weight: 350;
+  font-size: clamp(1.6rem, 2.7vw, 2.1rem);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  margin: 0 0 var(--space-3);
+  color: var(--ink);
+  font-variation-settings: "opsz" 72, "SOFT" 60;
+}
+
+.portfolio__spread-text p {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0;
+  max-width: none;
+}
+
 .portfolio__embed video {
   display: block;
   width: 100%;
