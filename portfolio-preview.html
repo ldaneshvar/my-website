@@ -216,6 +216,74 @@
     grid-column: 1 / -1;
   }
 
+  /* ============ E — NUMBERED EDITORIAL STACK ============ */
+  .pv-stack {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(var(--space-16), 10vw, var(--space-24));
+    padding-inline: clamp(var(--space-3), 3vw, var(--space-8));
+    max-width: 1400px;
+    margin-inline: auto;
+  }
+  .pv-stack-item {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(var(--space-6), 3vw, var(--space-10));
+  }
+  .pv-stack-head {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(var(--space-5), 3vw, var(--space-10));
+    align-items: baseline;
+    padding-block-end: var(--space-5);
+    border-block-end: 1px solid var(--hairline);
+  }
+  .pv-stack-num {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(3rem, 8vw, 6rem);
+    letter-spacing: -0.04em;
+    line-height: 0.85;
+    color: var(--accent);
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+  .pv-stack-meta h3 {
+    font-family: var(--font-display);
+    font-weight: 350;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 var(--space-2);
+    color: var(--ink);
+    font-variation-settings: "opsz" 72, "SOFT" 60;
+  }
+  .pv-stack-meta p {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+    margin: 0;
+    max-width: none;
+  }
+  .pv-stack-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #000;
+  }
+  .pv-stack-video--vert {
+    display: flex;
+    justify-content: center;
+  }
+  .pv-stack-video--vert video {
+    width: auto;
+    max-width: 420px;
+    aspect-ratio: 9 / 16;
+  }
+
   /* Shared card meta */
   .pv-card .pv-meta h3 {
     font-family: var(--font-display);
@@ -349,8 +417,70 @@
     </div>
 
     <hr class="preview-divider">
+
+    <!-- E — NUMBERED EDITORIAL STACK -->
+    <div class="container">
+      <p class="preview-label">E</p>
+      <h2 class="preview-h">Numbered editorial stack</h2>
+      <p class="preview-note">Each video gets its own full-width section with a huge 01&ndash;04 number beside its title. Generous whitespace between entries. Feels like flipping through a photo book.</p>
+    </div>
+    <div class="pv-stack">
+      <article class="pv-stack-item">
+        <div class="pv-stack-head">
+          <span class="pv-stack-num" aria-hidden="true">01</span>
+          <div class="pv-stack-meta">
+            <h3>My Life</h3>
+            <p>Short film &middot; 2026</p>
+          </div>
+        </div>
+        <div class="pv-stack-video">
+          <video controls preload="metadata" playsinline><source src="/video-3.mp4" type="video/mp4"></video>
+        </div>
+      </article>
+
+      <article class="pv-stack-item">
+        <div class="pv-stack-head">
+          <span class="pv-stack-num" aria-hidden="true">02</span>
+          <div class="pv-stack-meta">
+            <h3>Hike at Dusk, Lake 22</h3>
+            <p>Short-form video &middot; MTC &middot; June 2026</p>
+          </div>
+        </div>
+        <div class="pv-stack-video">
+          <video controls preload="metadata" playsinline><source src="/video-2.mp4" type="video/mp4"></video>
+        </div>
+      </article>
+
+      <article class="pv-stack-item">
+        <div class="pv-stack-head">
+          <span class="pv-stack-num" aria-hidden="true">03</span>
+          <div class="pv-stack-meta">
+            <h3>Estuary Youth Council, July Short-Form Video</h3>
+            <p>Short-form video &middot; MTC &middot; July 2026</p>
+          </div>
+        </div>
+        <div class="pv-stack-video">
+          <video controls preload="metadata" playsinline><source src="/video-1.mp4" type="video/mp4"></video>
+        </div>
+      </article>
+
+      <article class="pv-stack-item">
+        <div class="pv-stack-head">
+          <span class="pv-stack-num" aria-hidden="true">04</span>
+          <div class="pv-stack-meta">
+            <h3>Estuary Youth Council, August Field Trip</h3>
+            <p>Short-form video &middot; MTC &middot; August 2026</p>
+          </div>
+        </div>
+        <div class="pv-stack-video pv-stack-video--vert">
+          <video controls preload="metadata" playsinline><source src="/video-4.mp4" type="video/mp4"></video>
+        </div>
+      </article>
+    </div>
+
+    <hr class="preview-divider">
     <div class="container" style="padding-block-end: var(--space-20);">
-      <p class="preview-note">That's all four. Tell me A, B, C, or D (or none) and I'll apply it to the real /portfolio.</p>
+      <p class="preview-note">That's all five. Tell me A, B, C, D, or E (or none) and I'll apply it to the real /portfolio.</p>
     </div>
 
   </section>
