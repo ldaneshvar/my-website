@@ -132,20 +132,22 @@
     aspect-ratio: 9 / 16;
     max-width: 420px;
   }
-  /* Row with vertical video: tight pair, centered, gap between title and video */
+  /* Row with vertical video: 3-column grid (text | 100px offset | video) */
   @media (min-width: 800px) {
     .pv-mag-row--vertical-pair {
-      grid-template-columns: auto 420px;
+      grid-template-columns: auto 100px 420px;
       justify-content: center;
-      column-gap: 32px;
+      column-gap: 24px;
       align-items: center;
     }
     .pv-mag-row--vertical-pair .pv-mag-text {
+      grid-column: 1;
       text-align: right;
       max-width: 440px;
       padding-block: 0;
     }
     .pv-mag-row--vertical-pair .pv-card--vert {
+      grid-column: 3;
       width: 420px;
     }
   }
