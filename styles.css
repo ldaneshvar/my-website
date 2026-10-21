@@ -1886,6 +1886,11 @@ em { font-style: italic; }
   font-weight: 350;
   font-size: clamp(var(--step-1), 2vw, var(--step-2));
   margin: 0;
+  max-width: none;
   font-variation-settings: "SOFT" 50, "opsz" 36;
+}
+
+.photography__contact-line + .photography__contact-line {
+  margin-block-start: var(--space-2);
 }
 
