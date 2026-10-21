@@ -132,22 +132,21 @@
     aspect-ratio: 9 / 16;
     max-width: 420px;
   }
-  /* Row with vertical video: 3-column grid (text | 100px offset | video) */
+  /* Row with vertical video: text column matches row 2 (1fr), 100px spacer, then video */
   @media (min-width: 800px) {
     .pv-mag-row--vertical-pair {
-      grid-template-columns: auto 100px 420px;
-      justify-content: center;
+      grid-template-columns: 1fr 100px 2fr;
       column-gap: 24px;
       align-items: center;
     }
     .pv-mag-row--vertical-pair .pv-mag-text {
       grid-column: 1;
       text-align: right;
-      max-width: 440px;
       padding-block: 0;
     }
     .pv-mag-row--vertical-pair .pv-card--vert {
       grid-column: 3;
+      justify-self: start;
       width: 420px;
     }
   }
