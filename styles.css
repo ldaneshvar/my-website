@@ -2145,22 +2145,25 @@ em { font-style: italic; }
   max-width: 420px;
 }
 
-/* Row with vertical video: text column matches landscape rows (1fr), 100px spacer, video */
+/* Row with vertical video: tight pair, centered, small gap between text and video */
 @media (min-width: 800px) {
   .portfolio__spread-row--vertical {
-    grid-template-columns: 1fr 100px 2fr;
-    column-gap: 24px;
+    grid-template-columns: auto 420px;
+    justify-content: center;
+    column-gap: 40px;
     align-items: center;
   }
   .portfolio__spread-row--vertical .portfolio__spread-text {
-    grid-column: 1;
     text-align: right;
+    max-width: 440px;
     padding-block: 0;
   }
   .portfolio__spread-row--vertical .portfolio__spread-video {
-    grid-column: 3;
     justify-self: start;
     width: 420px;
+  }
+  .portfolio__spread-row--vertical .portfolio__spread-desc {
+    margin-inline-start: auto;
   }
 }
 
