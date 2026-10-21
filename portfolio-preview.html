@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<script>document.documentElement.classList.add('js');</script>
+<title>Lidia Daneshvar · Portfolio preview</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,30..100,0..1&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .preview-divider {
+    border: 0;
+    border-top: 1px dashed var(--accent);
+    margin: clamp(var(--space-16), 10vw, var(--space-24)) 0;
+  }
+  .preview-label {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin: 0 0 var(--space-3);
+  }
+  .preview-h {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 350;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 var(--space-6);
+  }
+  .preview-note {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    margin: 0 0 var(--space-10);
+    max-width: 60ch;
+  }
+
+  /* ============ A — MASONRY ============ */
+  .pv-masonry {
+    columns: 1;
+    column-gap: var(--space-3);
+    padding-inline: clamp(var(--space-3), 3vw, var(--space-8));
+  }
+  @media (min-width: 700px) { .pv-masonry { columns: 2; } }
+  @media (min-width: 1000px) { .pv-masonry { columns: 3; } }
+  .pv-masonry .pv-card {
+    display: block;
+    margin: 0 0 var(--space-5);
+    break-inside: avoid;
+  }
+  .pv-masonry video {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #000;
+  }
+  .pv-masonry .pv-meta {
+    padding: var(--space-3) 0 0;
+  }
+
+  /* ============ B — FILMSTRIP ============ */
+  .pv-strip {
+    display: flex;
+    gap: var(--space-5);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-inline: clamp(var(--space-3), 3vw, var(--space-8));
+    padding-block-end: var(--space-6);
+    scrollbar-color: var(--accent) var(--bg-deep);
+  }
+  .pv-strip .pv-card {
+    flex: 0 0 min(640px, 85vw);
+    scroll-snap-align: start;
+  }
+  .pv-strip .pv-card--vert {
+    flex-basis: min(360px, 70vw);
+  }
+  .pv-strip video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #000;
+  }
+  .pv-strip .pv-card--vert video {
+    aspect-ratio: 9 / 16;
+  }
+  .pv-strip .pv-meta {
+    padding: var(--space-3) 0 0;
+  }
+
+  /* ============ C — MAGAZINE SPREAD ============ */
+  .pv-mag {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(var(--space-10), 6vw, var(--space-16));
+    padding-inline: clamp(var(--space-3), 3vw, var(--space-8));
+    max-width: 1500px;
+    margin-inline: auto;
+  }
+  .pv-mag-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: center;
+  }
+  @media (min-width: 800px) {
+    .pv-mag-row { grid-template-columns: 2fr 1fr; }
+    .pv-mag-row--flip { grid-template-columns: 1fr 2fr; }
+    .pv-mag-row--flip .pv-mag-video { order: 2; }
+    .pv-mag-row--flip .pv-mag-text { order: 1; text-align: right; }
+  }
+  .pv-mag video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #000;
+  }
+  .pv-mag .pv-card--vert video {
+    aspect-ratio: 9 / 16;
+    max-width: 420px;
+  }
+  .pv-mag-text {
+    padding-block: var(--space-4);
+  }
+  .pv-mag-text h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    font-weight: 350;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    margin: 0 0 var(--space-3);
+    color: var(--ink);
+  }
+  .pv-mag-text p {
+    font-family: var(--font-body);
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 0;
+    max-width: none;
+  }
+
+  /* ============ D — POSTER GRID ============ */
+  .pv-posters {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    padding-inline: clamp(var(--space-3), 3vw, var(--space-8));
+  }
+  @media (min-width: 700px) { .pv-posters { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .pv-posters { grid-template-columns: repeat(4, 1fr); } }
+  .pv-poster {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    background: var(--bg-deep);
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--hairline);
+    transition: border-color 300ms ease;
+  }
+  .pv-poster:hover { border-color: var(--accent); }
+  .pv-poster video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+  .pv-poster::after {
+    content: "▶";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: var(--ink);
+    font-size: 2.5rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
+    transition: background 300ms ease;
+  }
+  .pv-poster:hover::after { background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.4)); }
+  .pv-posters .pv-meta {
+    padding: var(--space-3) 0 0;
+    grid-column: 1 / -1;
+  }
+
+  /* Shared card meta */
+  .pv-card .pv-meta h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: var(--step-1);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 0 0 var(--space-2);
+    color: var(--ink);
+  }
+  .pv-card .pv-meta p {
+    font-family: var(--font-body);
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+    margin: 0;
+    max-width: none;
+  }
+</style>
+</head>
+<body class="page-portfolio">
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="/portfolio" class="nav__wordmark">← Back to Portfolio</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="portfolio">
+    <div class="container">
+      <header class="portfolio__header reveal">
+        <h1 class="portfolio__title" style="font-size: clamp(2rem, 5vw, 3rem);">Preview — pick a direction</h1>
+        <p class="portfolio__caption">Four options for the Film section.</p>
+      </header>
+    </div>
+
+    <!-- A — MASONRY -->
+    <div class="container">
+      <p class="preview-label">A</p>
+      <h2 class="preview-h">Masonry</h2>
+      <p class="preview-note">Tight CSS columns like the photography page. Items flow top-to-bottom in each column, so the vertical video just slots in next to the landscapes. Zero wasted space.</p>
+    </div>
+    <div class="pv-masonry">
+      <div class="pv-card">
+        <video controls preload="metadata" playsinline><source src="/video-3.mp4" type="video/mp4"></video>
+        <div class="pv-meta"><h3>My Life</h3><p>Short film · 2026</p></div>
+      </div>
+      <div class="pv-card">
+        <video controls preload="metadata" playsinline><source src="/video-2.mp4" type="video/mp4"></video>
+        <div class="pv-meta"><h3>Hike at Dusk, Lake 22</h3><p>Short-form video · MTC · June 2026</p></div>
+      </div>
+      <div class="pv-card">
+        <video controls preload="metadata" playsinline><source src="/video-1.mp4" type="video/mp4"></video>
+        <div class="pv-meta"><h3>Estuary Youth Council, July Short-Form Video</h3><p>Short-form video · MTC · July 2026</p></div>
+      </div>
+      <div class="pv-card">
+        <video controls preload="metadata" playsinline><source src="/video-4.mp4" type="video/mp4"></video>
+        <div class="pv-meta"><h3>Estuary Youth Council, August Field Trip</h3><p>Short-form video · MTC · August 2026</p></div>
+      </div>
+    </div>
+
+    <hr class="preview-divider">
+
+    <!-- B — FILMSTRIP -->
+    <div class="container">
+      <p class="preview-label">B</p>
+      <h2 class="preview-h">Horizontal filmstrip</h2>
+      <p class="preview-note">All videos in one scrolling row. Scroll sideways to see them all. Film-reel aesthetic — each piece gets a big, intentional stage.</p>
+    </div>
+    <div class="pv-strip">
+      <div class="pv-card">
+        <video controls preload="metadata" playsinline><source src="/video-3.mp4" type="video/mp4"></video>
+        <div class="pv-meta"><h3>My Life</h3><p>Short film · 2026</p></div>
+      </div>
+      <div class="pv-card">
+        <video controls preload="metadata" playsinline><source src="/video-2.mp4" type="video/mp4"></video>
+        <div class="pv-meta"><h3>Hike at Dusk, Lake 22</h3><p>Short-form video · MTC · June 2026</p></div>
+      </div>
+      <div class="pv-card">
+        <video controls preload="metadata" playsinline><source src="/video-1.mp4" type="video/mp4"></video>
+        <div class="pv-meta"><h3>EYC, July Short-Form Video</h3><p>Short-form video · MTC · July 2026</p></div>
+      </div>
+      <div class="pv-card pv-card--vert">
+        <video controls preload="metadata" playsinline><source src="/video-4.mp4" type="video/mp4"></video>
+        <div class="pv-meta"><h3>EYC, August Field Trip</h3><p>Short-form video · MTC · August 2026</p></div>
+      </div>
+    </div>
+
+    <hr class="preview-divider">
+
+    <!-- C — MAGAZINE -->
+    <div class="container">
+      <p class="preview-label">C</p>
+      <h2 class="preview-h">Magazine spread</h2>
+      <p class="preview-note">Each video gets its own row with a sidebar text block. Rows alternate sides — video on left, text on right, then flipped. Very editorial.</p>
+    </div>
+    <div class="pv-mag">
+      <div class="pv-mag-row">
+        <div class="pv-mag-video"><video controls preload="metadata" playsinline><source src="/video-3.mp4" type="video/mp4"></video></div>
+        <div class="pv-mag-text"><h3>My Life</h3><p>Short film · 2026</p></div>
+      </div>
+      <div class="pv-mag-row pv-mag-row--flip">
+        <div class="pv-mag-video"><video controls preload="metadata" playsinline><source src="/video-2.mp4" type="video/mp4"></video></div>
+        <div class="pv-mag-text"><h3>Hike at Dusk, Lake 22</h3><p>Short-form video · MTC · June 2026</p></div>
+      </div>
+      <div class="pv-mag-row">
+        <div class="pv-mag-video"><video controls preload="metadata" playsinline><source src="/video-1.mp4" type="video/mp4"></video></div>
+        <div class="pv-mag-text"><h3>EYC, July Short-Form Video</h3><p>Short-form video · MTC · July 2026</p></div>
+      </div>
+      <div class="pv-mag-row pv-mag-row--flip">
+        <div class="pv-mag-video pv-card--vert"><video controls preload="metadata" playsinline><source src="/video-4.mp4" type="video/mp4"></video></div>
+        <div class="pv-mag-text"><h3>EYC, August Field Trip</h3><p>Short-form video · MTC · August 2026</p></div>
+      </div>
+    </div>
+
+    <hr class="preview-divider">
+
+    <!-- D — POSTER GRID -->
+    <div class="container">
+      <p class="preview-label">D</p>
+      <h2 class="preview-h">Poster grid</h2>
+      <p class="preview-note">Uniform 3:4 poster tiles with a play icon overlay. Click to open fullscreen (not wired in this preview — just showing the look). Keeps the grid perfectly clean regardless of video aspect.</p>
+    </div>
+    <div class="pv-posters">
+      <div class="pv-poster"><video muted preload="metadata" playsinline><source src="/video-3.mp4" type="video/mp4"></video></div>
+      <div class="pv-poster"><video muted preload="metadata" playsinline><source src="/video-2.mp4" type="video/mp4"></video></div>
+      <div class="pv-poster"><video muted preload="metadata" playsinline><source src="/video-1.mp4" type="video/mp4"></video></div>
+      <div class="pv-poster"><video muted preload="metadata" playsinline><source src="/video-4.mp4" type="video/mp4"></video></div>
+    </div>
+
+    <hr class="preview-divider">
+    <div class="container" style="padding-block-end: var(--space-20);">
+      <p class="preview-note">That's all four. Tell me A, B, C, or D (or none) and I'll apply it to the real /portfolio.</p>
+    </div>
+
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p class="footer__credit">&copy; <span data-year>2026</span> Lidia Daneshvar · All rights reserved</p>
+    <p class="footer__set" data-sf-time>San Francisco</p>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+</body>
+</html>
