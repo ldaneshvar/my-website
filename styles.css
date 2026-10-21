@@ -2098,11 +2098,13 @@ em { font-style: italic; }
 }
 
 .portfolio__embed--vertical {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 9 / 16;
+  max-width: 420px;
+  margin-inline: auto;
 }
 
 .portfolio__embed--vertical video {
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .portfolio__embed video {
