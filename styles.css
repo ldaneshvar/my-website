@@ -2087,6 +2087,11 @@ em { font-style: italic; }
   width: 100%;
   height: 100%;
   background: #000;
+  object-fit: cover;
+}
+
+/* Vertical IG-shaped embeds should still contain so the full frame shows */
+.portfolio__embed--ig video {
   object-fit: contain;
 }
 
