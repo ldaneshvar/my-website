@@ -1790,7 +1790,8 @@ em { font-style: italic; }
 
 .photography__gallery {
   columns: 1;
-  column-gap: var(--space-3);
+  column-gap: var(--space-2);
+  padding-inline: var(--space-2);
   margin: 0 0 clamp(var(--space-16), 8vw, var(--space-24));
 }
 
@@ -1806,7 +1807,7 @@ em { font-style: italic; }
   display: block;
   width: 100%;
   height: auto;
-  margin: 0 0 var(--space-3);
+  margin: 0 0 var(--space-2);
   break-inside: avoid;
   -webkit-user-select: none;
   user-select: none;
@@ -1814,7 +1815,6 @@ em { font-style: italic; }
 }
 
 .photography__slot {
-  aspect-ratio: 3 / 4;
   background: var(--bg-deep);
   border: 1px dashed var(--hairline);
   display: flex;
@@ -1822,9 +1822,13 @@ em { font-style: italic; }
   justify-content: center;
   padding: var(--space-3);
   text-align: center;
-  margin: 0 0 var(--space-3);
+  margin: 0 0 var(--space-2);
   break-inside: avoid;
 }
+
+.photography__slot--landscape { aspect-ratio: 4 / 3; }
+.photography__slot--tall      { aspect-ratio: 3 / 4; }
+.photography__slot--square    { aspect-ratio: 1 / 1; }
 
 .photography__slot span {
   font-family: var(--font-body);
