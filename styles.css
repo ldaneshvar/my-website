@@ -1877,6 +1877,10 @@ em { font-style: italic; }
   margin-block-end: clamp(var(--space-12), 8vw, var(--space-16));
 }
 
+.photography__contact p {
+  max-width: none;
+}
+
 .photography__contact .eyebrow {
   margin-block-end: var(--space-3);
 }
