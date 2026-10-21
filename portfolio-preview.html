@@ -132,9 +132,21 @@
     aspect-ratio: 9 / 16;
     max-width: 420px;
   }
+  /* Row with vertical video: tight pair, centered, gap between title and video */
   @media (min-width: 800px) {
-    .pv-mag-row--flip .pv-card--vert {
-      transform: translateX(-100px);
+    .pv-mag-row--vertical-pair {
+      grid-template-columns: auto 420px;
+      justify-content: center;
+      column-gap: 32px;
+      align-items: center;
+    }
+    .pv-mag-row--vertical-pair .pv-mag-text {
+      text-align: right;
+      max-width: 440px;
+      padding-block: 0;
+    }
+    .pv-mag-row--vertical-pair .pv-card--vert {
+      width: 420px;
     }
   }
   .pv-mag-text {
