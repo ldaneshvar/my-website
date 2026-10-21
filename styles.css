@@ -1789,11 +1789,11 @@ em { font-style: italic; }
 .photography__title {
   font-family: var(--font-display);
   font-weight: 350;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  letter-spacing: -0.015em;
-  line-height: 1;
-  margin: 0 0 var(--space-4);
-  font-variation-settings: "SOFT" 50, "opsz" 72;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  margin: 0 0 var(--space-5);
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
 }
 
 .photography__caption {
