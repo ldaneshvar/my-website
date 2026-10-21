@@ -2078,6 +2078,12 @@ em { font-style: italic; }
   width: 100%;
   background: var(--bg-deep);
   overflow: hidden;
+  border: 1px solid var(--hairline);
+  transition: border-color var(--dur-med) var(--ease-out-quart);
+}
+
+.portfolio__card:hover .portfolio__embed {
+  border-color: var(--ink-muted);
 }
 
 .portfolio__embed iframe {
@@ -2123,11 +2129,23 @@ em { font-style: italic; }
 .portfolio__card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-5);
 }
 
 .portfolio__meta-row {
   padding-inline: var(--space-2);
+  position: relative;
+  padding-block-start: var(--space-4);
+}
+
+.portfolio__meta-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--space-2);
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
 }
 
 .portfolio__thumb {
