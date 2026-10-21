@@ -1921,6 +1921,21 @@ em { font-style: italic; }
   border-bottom-color: var(--hairline);
 }
 
+.page-portfolio .nav__wordmark,
+.page-portfolio .nav__toggle-label,
+.page-portfolio .nav__links a {
+  color: var(--ink);
+}
+
+.page-portfolio .nav__wordmark:hover,
+.page-portfolio .nav__links a:hover {
+  color: var(--accent);
+}
+
+.page-portfolio .nav__cta {
+  text-decoration-color: var(--accent);
+}
+
 .page-portfolio .footer {
   background: var(--bg);
   border-top: 1px solid var(--hairline);
