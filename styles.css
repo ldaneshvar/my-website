@@ -2082,6 +2082,14 @@ em { font-style: italic; }
   aspect-ratio: 16 / 9;
 }
 
+.portfolio__embed--vertical {
+  aspect-ratio: 16 / 9;
+}
+
+.portfolio__embed--vertical video {
+  object-fit: contain;
+}
+
 .portfolio__embed video {
   display: block;
   width: 100%;
