@@ -2300,29 +2300,27 @@ em { font-style: italic; }
   outline-offset: 4px;
 }
 
-/* Square tile container — holds the SVG emblem */
+/* Square image container — identical dimensions regardless of source aspect */
 .portfolio__cat-image {
   position: relative;
   aspect-ratio: 1 / 1;
-  background: var(--bg);
+  background: var(--bg-deep);
   overflow: hidden;
-  display: grid;
-  place-items: center;
 }
 
-/* Custom SVG emblem per category — botanical texture clipped inside a shape */
-.portfolio__cat-emblem {
+.portfolio__cat-image img {
   display: block;
-  width: 72%;
-  height: 72%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 700ms var(--ease-out-quart),
               filter 500ms var(--ease-out-quart);
 }
 
-.portfolio__cat-tile:hover .portfolio__cat-emblem,
-.portfolio__cat-tile:focus-visible .portfolio__cat-emblem {
-  transform: scale(1.06);
-  filter: brightness(0.78);
+.portfolio__cat-tile:hover .portfolio__cat-image img,
+.portfolio__cat-tile:focus-visible .portfolio__cat-image img {
+  transform: scale(1.04);
+  filter: brightness(0.72);
 }
 
 /* Hover overlay with description */
