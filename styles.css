@@ -2055,8 +2055,17 @@ em { font-style: italic; }
 }
 
 .portfolio__section {
-  margin-block-end: clamp(var(--space-12), 7vw, var(--space-20));
+  margin-block-end: clamp(var(--space-16), 10vw, var(--space-32));
 }
+
+/* Staggered reveal of film rows and category tiles */
+.portfolio__spread .portfolio__spread-row.reveal.is-revealed:nth-child(2) { transition-delay: 100ms; }
+.portfolio__spread .portfolio__spread-row.reveal.is-revealed:nth-child(3) { transition-delay: 200ms; }
+.portfolio__spread .portfolio__spread-row.reveal.is-revealed:nth-child(4) { transition-delay: 300ms; }
+
+.portfolio__cat-grid .portfolio__cat-tile.reveal.is-revealed:nth-child(2) { transition-delay: 90ms; }
+.portfolio__cat-grid .portfolio__cat-tile.reveal.is-revealed:nth-child(3) { transition-delay: 180ms; }
+.portfolio__cat-grid .portfolio__cat-tile.reveal.is-revealed:nth-child(4) { transition-delay: 270ms; }
 
 .portfolio__section-label {
   font-family: var(--font-body);
@@ -2228,10 +2237,10 @@ em { font-style: italic; }
   font-style: italic;
   font-weight: 350;
   font-size: var(--step-0);
-  line-height: 1.5;
+  line-height: 1.65;
   color: var(--ink-muted);
-  margin: var(--space-3) 0 0;
-  max-width: 42ch;
+  margin: var(--space-4) 0 0;
+  max-width: 44ch;
   font-variation-settings: "opsz" 24, "SOFT" 100;
 }
 
@@ -2291,25 +2300,27 @@ em { font-style: italic; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 600ms var(--ease-out-quart);
+  transition: transform 700ms var(--ease-out-quart),
+              filter 500ms var(--ease-out-quart);
 }
 
 .portfolio__cat-tile:hover .portfolio__cat-image img,
 .portfolio__cat-tile:focus-visible .portfolio__cat-image img {
-  transform: scale(1.03);
+  transform: scale(1.04);
+  filter: brightness(0.72);
 }
 
 /* Hover overlay with description */
 .portfolio__cat-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(10, 8, 6, 0.58);
+  background: rgba(10, 8, 6, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: clamp(var(--space-4), 2vw, var(--space-6));
   opacity: 0;
-  transition: opacity 300ms var(--ease-out-quart);
+  transition: opacity 450ms var(--ease-out-quart);
 }
 
 .portfolio__cat-tile:hover .portfolio__cat-overlay,
@@ -2868,6 +2879,28 @@ em { font-style: italic; }
   margin: 0;
   max-width: none;
   font-variation-settings: "SOFT" 50, "opsz" 36;
+}
+
+.portfolio__contact-headline {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--ink);
+  margin: var(--space-4) 0 var(--space-6);
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+  max-width: none;
+}
+
+.portfolio__contact-location {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  margin: var(--space-5) 0 0;
+  max-width: none;
 }
 
 
