@@ -1975,26 +1975,6 @@ em { font-style: italic; }
   text-wrap: balance;
 }
 
-/* Fill the name with a refined crimson-to-amber gradient (letters become a cutout) */
-@supports ((background-clip: text) or (-webkit-background-clip: text)) {
-  .portfolio__title {
-    background-image: linear-gradient(
-      118deg,
-      oklch(0.64 0.22 24) 0%,
-      oklch(0.72 0.21 32) 28%,
-      oklch(0.80 0.17 58) 52%,
-      oklch(0.70 0.22 32) 78%,
-      oklch(0.60 0.23 22) 100%
-    );
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-}
 
 .portfolio__caption {
   font-family: var(--font-display);
