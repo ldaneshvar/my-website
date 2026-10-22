@@ -1971,8 +1971,26 @@ em { font-style: italic; }
   line-height: 0.88;
   margin: 0 0 var(--space-5);
   color: var(--ink);
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  font-variation-settings: "opsz" 144, "SOFT" 25, "WONK" 0;
   text-wrap: balance;
+  display: inline-block;
+  transition: font-variation-settings 500ms var(--ease-out-quart),
+              transform 500ms var(--ease-out-quart);
+  transform-origin: center;
+}
+
+.portfolio__title:hover {
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  transform: scale(1.025);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio__title {
+    transition: none;
+  }
+  .portfolio__title:hover {
+    transform: none;
+  }
 }
 
 
