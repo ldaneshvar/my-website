@@ -2233,9 +2233,14 @@ em { font-style: italic; }
 .portfolio__cat-tile {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-3);
   text-decoration: none;
   color: inherit;
+}
+
+/* Text block now sits ABOVE the image */
+.portfolio__cat-tile .portfolio__cat-text {
+  padding-inline: 0;
 }
 
 .portfolio__cat-tile:focus-visible {
@@ -2245,11 +2250,10 @@ em { font-style: italic; }
 
 /* Square image container — identical dimensions regardless of source aspect */
 .portfolio__cat-image {
+  position: relative;
   aspect-ratio: 1 / 1;
   background: var(--bg-deep);
   overflow: hidden;
-  display: grid;
-  place-items: center;
 }
 
 .portfolio__cat-image img {
@@ -2257,13 +2261,60 @@ em { font-style: italic; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 600ms var(--ease-out-quart), opacity 350ms ease;
+  transition: transform 600ms var(--ease-out-quart);
 }
 
 .portfolio__cat-tile:hover .portfolio__cat-image img,
 .portfolio__cat-tile:focus-visible .portfolio__cat-image img {
   transform: scale(1.03);
-  opacity: 0.9;
+}
+
+/* Hover overlay with description */
+.portfolio__cat-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 8, 6, 0.58);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(var(--space-4), 2vw, var(--space-6));
+  opacity: 0;
+  transition: opacity 300ms var(--ease-out-quart);
+}
+
+.portfolio__cat-tile:hover .portfolio__cat-overlay,
+.portfolio__cat-tile:focus-visible .portfolio__cat-overlay {
+  opacity: 1;
+}
+
+.portfolio__cat-overlay .portfolio__cat-desc {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 350;
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  line-height: 1.5;
+  color: oklch(0.94 0.012 78);
+  text-align: center;
+  margin: 0;
+  max-width: 32ch;
+  font-variation-settings: "opsz" 36, "SOFT" 100;
+}
+
+/* Touch devices: no hover — show description as regular text below image */
+@media (hover: none) {
+  .portfolio__cat-overlay {
+    position: static;
+    opacity: 1;
+    background: none;
+    padding: var(--space-3) 0 0;
+    display: block;
+  }
+  .portfolio__cat-overlay .portfolio__cat-desc {
+    color: var(--ink-muted);
+    text-align: left;
+    font-size: var(--step-0);
+    max-width: 42ch;
+  }
 }
 
 /* Dark placeholder for categories with no image yet */
@@ -2287,7 +2338,7 @@ em { font-style: italic; }
   font-size: var(--step--1);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #B77B60;
   margin: 0 0 var(--space-3);
   max-width: none;
 }
@@ -2306,7 +2357,7 @@ em { font-style: italic; }
 
 .portfolio__cat-tile:hover .portfolio__cat-title,
 .portfolio__cat-tile:focus-visible .portfolio__cat-title {
-  color: var(--accent);
+  color: #B77B60;
 }
 
 .portfolio__cat-desc {
