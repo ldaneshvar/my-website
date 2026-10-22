@@ -2938,8 +2938,8 @@ em { font-style: italic; }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  -webkit-mask-image: linear-gradient(180deg, transparent 0px, #000 340px);
-          mask-image: linear-gradient(180deg, transparent 0px, #000 340px);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0px, #000 60%);
+          mask-image: linear-gradient(180deg, transparent 0px, #000 60%);
 }
 
 /* Readability overlay — subtle dark tint; starts transparent so it doesn't fight the fade-in */
