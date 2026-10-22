@@ -2329,19 +2329,20 @@ em { font-style: italic; }
   transition: opacity 500ms var(--ease-out-quart);
 }
 
-/* SVG-rendered variant (for icons that need to be crisp at any size,
-   rather than an upscaled raster). Centers the SVG and sizes it to
-   match the proportion of the other three raster icons. */
+/* SVG-rendered variant. Centered and sized to match the raster icons.
+   A subtle blur + warm, slightly translucent stroke color gives the
+   vector lines the same soft, chalky quality as the extracted icons
+   on the other three tiles. */
 .portfolio__cat-image .portfolio__cat-icon--svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #F5EFDF;
+  color: rgba(243, 234, 215, 0.9);
 }
 .portfolio__cat-image .portfolio__cat-icon--svg svg {
   width: 54%;
   height: 54%;
-  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+  filter: blur(0.45px) drop-shadow(0 1px 6px rgba(0, 0, 0, 0.22));
 }
 
 .portfolio__cat-tile:hover .portfolio__cat-image .portfolio__cat-icon,
