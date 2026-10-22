@@ -279,6 +279,9 @@
     <span aria-hidden="true">&times;</span>
   </button>
   <div class="project-overlay__content">
+    <button class="project-overlay__back" type="button" id="overlay-back">
+      <span aria-hidden="true">&larr;</span> <span id="overlay-back-label">Back to category</span>
+    </button>
     <p class="project-overlay__meta" id="overlay-meta"></p>
     <h2 class="project-overlay__title" id="overlay-title"></h2>
     <img class="project-overlay__hero" id="overlay-hero" src="" alt="">
@@ -340,10 +343,22 @@
       }
     };
 
+    const backBtn = document.getElementById('overlay-back');
+    const backLabelEl = document.getElementById('overlay-back-label');
+
     function openProject(id) {
       const p = projects[id];
       if (!p) return;
       lastFocusedElement = document.activeElement;
+      // Determine which open category we came from (if any) for the back link label
+      const openCat = document.querySelector('[data-cat-view]:not([hidden])');
+      if (openCat) {
+        const label = openCat.querySelector('.portfolio__cat-eyebrow');
+        backLabelEl.textContent = 'Back to ' + (label ? label.textContent.trim() : 'category');
+        backBtn.hidden = false;
+      } else {
+        backBtn.hidden = true;
+      }
       titleEl.textContent = p.title;
       metaEl.textContent = p.meta;
       descEl.textContent = p.description;
@@ -381,6 +396,7 @@
     });
 
     closeBtn.addEventListener('click', closeProject);
+    backBtn.addEventListener('click', closeProject);
     overlay.addEventListener('click', function (e) {
       if (e.target === overlay) closeProject();
     });

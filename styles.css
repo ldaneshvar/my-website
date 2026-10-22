@@ -2220,6 +2220,12 @@ em { font-style: italic; }
   margin-inline: auto;
 }
 
+/* Override higher-specificity display when hidden attribute is applied */
+.portfolio__categories[hidden],
+.portfolio__cat-view[hidden] {
+  display: none !important;
+}
+
 @media (min-width: 700px) {
   .portfolio__categories {
     grid-template-columns: repeat(2, 1fr);
@@ -2456,6 +2462,30 @@ em { font-style: italic; }
   margin-inline: auto;
   padding: clamp(var(--space-16), 10vw, var(--space-24)) clamp(var(--space-5), 6vw, var(--space-12));
   animation: project-overlay-fade 500ms var(--ease-out-quart) both;
+}
+
+.project-overlay__back {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  padding: 0;
+  margin-block-end: var(--space-6);
+  transition: color 220ms ease;
+}
+
+.project-overlay__back:hover,
+.project-overlay__back:focus-visible {
+  color: var(--accent);
+}
+
+.project-overlay__back:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .project-overlay[aria-hidden="true"] .project-overlay__content {
