@@ -120,36 +120,7 @@
             </div>
             <div class="portfolio__cat-image">
               <img src="/category-personal.jpg" alt="" loading="lazy" width="1200" height="1200">
-              <div class="portfolio__cat-icon portfolio__cat-icon--svg" aria-hidden="true">
-                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                  <defs>
-                    <!-- Chalk-on-paper filter: fractal noise displaces the stroke
-                         edges just enough to break the vector-perfect outline,
-                         then a slight alpha reduction gives the "chalky" look.
-                         Scoped to this SVG only; not a CSS blur. -->
-                    <filter id="camera-chalk" x="-4%" y="-4%" width="108%" height="108%">
-                      <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="7" result="noise"/>
-                      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.35"/>
-                      <feComponentTransfer>
-                        <feFuncA type="linear" slope="0.92"/>
-                      </feComponentTransfer>
-                    </filter>
-                  </defs>
-                  <g filter="url(#camera-chalk)">
-                    <!-- Wide trapezoidal viewfinder on top -->
-                    <path d="M34 30 L40 20 L60 20 L66 30"/>
-                    <!-- Wide camera body, horizontally oriented, soft rounded corners -->
-                    <rect x="10" y="30" width="80" height="52" rx="4"/>
-                    <!-- Thin horizontal line across the upper section -->
-                    <line x1="10" y1="42" x2="90" y2="42"/>
-                    <!-- Small shutter-button detail on the upper left -->
-                    <rect x="17" y="35" width="7" height="3" rx="0.6"/>
-                    <!-- Large centered lens: two concentric rings -->
-                    <circle cx="50" cy="60" r="15"/>
-                    <circle cx="50" cy="60" r="9.5"/>
-                  </g>
-                </svg>
-              </div>
+              <img src="/category-personal-icon.png" alt="" aria-hidden="true" class="portfolio__cat-icon" loading="lazy">
               <div class="portfolio__cat-overlay">
                 <p class="portfolio__cat-desc">Experiments and side work. In preparation.</p>
               </div>

@@ -2329,19 +2329,6 @@ em { font-style: italic; }
   transition: opacity 500ms var(--ease-out-quart);
 }
 
-/* SVG-rendered variant. Centered and sized to match the raster icons.
-   No blur, no drop-shadow — the SVG renders crisply; softness comes
-   only from the warm off-white stroke color and thin stroke width. */
-.portfolio__cat-image .portfolio__cat-icon--svg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #EDE2CB;
-}
-.portfolio__cat-image .portfolio__cat-icon--svg svg {
-  width: 54%;
-  height: 54%;
-}
 
 .portfolio__cat-tile:hover .portfolio__cat-image .portfolio__cat-icon,
 .portfolio__cat-tile:focus-visible .portfolio__cat-image .portfolio__cat-icon {
