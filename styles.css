@@ -2140,7 +2140,7 @@ em { font-style: italic; }
 }
 
 .portfolio__spread-video:hover {
-  outline-color: oklch(0.35 0.16 22);
+  outline-color: oklch(0.22 0.12 18);
   outline-offset: 2px;
 }
 
