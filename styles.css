@@ -2285,7 +2285,7 @@ em { font-style: italic; }
 .portfolio__cat-tile {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 4px;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
@@ -2442,10 +2442,14 @@ em { font-style: italic; }
   transition: color 240ms var(--ease-out-quart);
 }
 
-/* Reserve 2 lines of title space on grid breakpoints so all images start at the same Y */
+/* Reserve 2 lines of title space on grid breakpoints so all images start at
+   the same Y. Align the text to the BOTTOM of that reserved space so short,
+   single-line titles sit as close to their image as the two-line ones do. */
 @media (min-width: 700px) {
   .portfolio__cat-title {
     min-height: calc(2 * 1.1em);
+    display: grid;
+    align-content: end;
   }
 }
 
