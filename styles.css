@@ -2916,20 +2916,20 @@ em { font-style: italic; }
   max-width: none;
 }
 
-/* Cinematic closing footer: botanical fades up from black at the top edge */
+/* Cinematic closing footer: botanical emerges from black like a film develop */
 .portfolio__closer {
   position: relative;
   width: 100%;
-  min-height: 400px;
+  min-height: clamp(600px, 75vh, 900px);
   background: var(--bg);
   display: grid;
   place-items: center;
-  padding-block: clamp(var(--space-16), 10vw, var(--space-24));
+  padding-block: clamp(var(--space-32), 24vh, var(--space-48)) clamp(var(--space-16), 10vw, var(--space-24));
   padding-inline: clamp(var(--space-5), 5vw, var(--space-10));
   overflow: hidden;
 }
 
-/* Botanical image layer — top 220px fades from transparent to full so the image emerges from the black above */
+/* Botanical image layer — long multi-stop fade so black bleeds into red with no boundary */
 .portfolio__closer::before {
   content: "";
   position: absolute;
@@ -2938,21 +2938,38 @@ em { font-style: italic; }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  -webkit-mask-image: linear-gradient(180deg, transparent 0px, #000 60%);
-          mask-image: linear-gradient(180deg, transparent 0px, #000 60%);
+  -webkit-mask-image: linear-gradient(180deg,
+    transparent 0%,
+    transparent 15%,
+    rgba(0, 0, 0, 0.04) 25%,
+    rgba(0, 0, 0, 0.12) 35%,
+    rgba(0, 0, 0, 0.28) 45%,
+    rgba(0, 0, 0, 0.5) 55%,
+    rgba(0, 0, 0, 0.75) 68%,
+    rgba(0, 0, 0, 0.92) 80%,
+    #000 92%);
+          mask-image: linear-gradient(180deg,
+    transparent 0%,
+    transparent 15%,
+    rgba(0, 0, 0, 0.04) 25%,
+    rgba(0, 0, 0, 0.12) 35%,
+    rgba(0, 0, 0, 0.28) 45%,
+    rgba(0, 0, 0, 0.5) 55%,
+    rgba(0, 0, 0, 0.75) 68%,
+    rgba(0, 0, 0, 0.92) 80%,
+    #000 92%);
 }
 
-/* Readability overlay — subtle dark tint; starts transparent so it doesn't fight the fade-in */
+/* Readability overlay — stays out of the top area, lightly tints near text */
 .portfolio__closer::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(0, 0, 0, 0) 0px,
-    rgba(0, 0, 0, 0) 180px,
-    rgba(0, 0, 0, 0.30) 260px,
-    rgba(0, 0, 0, 0.20) 60%,
-    rgba(0, 0, 0, 0.40) 100%);
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.18) 80%,
+    rgba(0, 0, 0, 0.32) 100%);
   pointer-events: none;
 }
 
@@ -2992,19 +3009,21 @@ em { font-style: italic; }
 }
 
 .portfolio__closer-email {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 350;
-  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
-  color: oklch(0.92 0.015 70);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  color: oklch(0.86 0.015 70);
   margin: 0;
   max-width: none;
-  font-variation-settings: "opsz" 36, "SOFT" 100;
 }
 
 .portfolio__closer-email a {
   color: inherit;
-  text-decoration-color: rgba(255, 255, 255, 0.35);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
+  transition: color 220ms ease, text-decoration-color 220ms ease;
 }
 
 .portfolio__closer-email a:hover {
