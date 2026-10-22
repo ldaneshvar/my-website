@@ -2040,6 +2040,12 @@ em { font-style: italic; }
   border-bottom: 1px solid var(--hairline);
 }
 
+/* Digital Projects only: pull the four-tile grid up closer to the
+   section's divider line (about 25-30% less gap than the default). */
+.portfolio__section:has(.portfolio__cat-grid) .portfolio__section-head {
+  margin-bottom: clamp(17px, 2.8vw, 28px);
+}
+
 .portfolio__section-index {
   font-family: var(--font-body);
   font-size: 0.72rem;
