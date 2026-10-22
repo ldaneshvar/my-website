@@ -2330,19 +2330,17 @@ em { font-style: italic; }
 }
 
 /* SVG-rendered variant. Centered and sized to match the raster icons.
-   A subtle blur + warm, slightly translucent stroke color gives the
-   vector lines the same soft, chalky quality as the extracted icons
-   on the other three tiles. */
+   No blur, no drop-shadow — the SVG renders crisply; softness comes
+   only from the warm off-white stroke color and thin stroke width. */
 .portfolio__cat-image .portfolio__cat-icon--svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(243, 234, 215, 0.9);
+  color: #EDE2CB;
 }
 .portfolio__cat-image .portfolio__cat-icon--svg svg {
   width: 54%;
   height: 54%;
-  filter: blur(0.45px) drop-shadow(0 1px 6px rgba(0, 0, 0, 0.22));
 }
 
 .portfolio__cat-tile:hover .portfolio__cat-image .portfolio__cat-icon,
