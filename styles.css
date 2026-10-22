@@ -2355,6 +2355,13 @@ em { font-style: italic; }
   transition: color 240ms var(--ease-out-quart);
 }
 
+/* Reserve 2 lines of title space on grid breakpoints so all images start at the same Y */
+@media (min-width: 700px) {
+  .portfolio__cat-title {
+    min-height: calc(2 * 1.1em);
+  }
+}
+
 .portfolio__cat-tile:hover .portfolio__cat-title,
 .portfolio__cat-tile:focus-visible .portfolio__cat-title {
   color: #B77B60;
