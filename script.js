@@ -177,4 +177,35 @@
     // Fallback: no IntersectionObserver support, show everything immediately
     reveals.forEach(el => el.classList.add('is-revealed'));
   }
+
+  /* ---------------------------------------------------------------
+     Portfolio category tiles: click-to-reveal, click-again-to-visit
+     First tap/click fades the image to black and reveals the
+     description. A second tap/click on the same tile (while open)
+     follows the link.
+     --------------------------------------------------------------- */
+  const catTiles = document.querySelectorAll('.portfolio__cat-tile');
+  if (catTiles.length) {
+    const closeAll = (except) => {
+      catTiles.forEach(t => { if (t !== except) t.classList.remove('is-open'); });
+    };
+
+    catTiles.forEach(tile => {
+      tile.addEventListener('click', (e) => {
+        if (!tile.classList.contains('is-open')) {
+          e.preventDefault();
+          closeAll(tile);
+          tile.classList.add('is-open');
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.portfolio__cat-tile')) closeAll(null);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAll(null);
+    });
+  }
 })();

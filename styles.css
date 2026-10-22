@@ -2313,62 +2313,56 @@ em { font-style: italic; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 700ms var(--ease-out-quart),
-              filter 500ms var(--ease-out-quart);
+  transition: filter 1100ms var(--ease-out-quart),
+              opacity 1100ms var(--ease-out-quart),
+              transform 900ms var(--ease-out-quart);
 }
 
-.portfolio__cat-tile:hover .portfolio__cat-image img,
-.portfolio__cat-tile:focus-visible .portfolio__cat-image img {
-  transform: scale(1.04);
-  filter: brightness(0.72);
+/* Click-to-reveal: image fades toward black, overlay with text fades in */
+.portfolio__cat-tile.is-open .portfolio__cat-image img {
+  filter: brightness(0.08) saturate(0.3);
+  opacity: 0.35;
+  transform: scale(1.015);
 }
 
-/* Hover overlay with description */
+/* Overlay sits above the image and holds the centered description */
 .portfolio__cat-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(10, 8, 6, 0.35);
+  background: var(--bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(var(--space-4), 2vw, var(--space-6));
+  padding: clamp(var(--space-4), 2.4vw, var(--space-7));
   opacity: 0;
-  transition: opacity 450ms var(--ease-out-quart);
+  pointer-events: none;
+  transition: opacity 950ms var(--ease-out-quart);
 }
 
-.portfolio__cat-tile:hover .portfolio__cat-overlay,
-.portfolio__cat-tile:focus-visible .portfolio__cat-overlay {
-  opacity: 1;
+.portfolio__cat-tile.is-open .portfolio__cat-overlay {
+  opacity: 0.92;
 }
 
 .portfolio__cat-overlay .portfolio__cat-desc {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 350;
-  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-  line-height: 1.5;
-  color: oklch(0.94 0.012 78);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.55;
+  color: oklch(0.95 0.012 78);
   text-align: center;
   margin: 0;
-  max-width: 32ch;
-  font-variation-settings: "opsz" 36, "SOFT" 100;
+  max-width: 28ch;
+  font-variation-settings: "opsz" 48, "SOFT" 100;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 700ms var(--ease-out-quart) 350ms,
+              transform 900ms var(--ease-out-quart) 300ms;
 }
 
-/* Touch devices: no hover — show description as regular text below image */
-@media (hover: none) {
-  .portfolio__cat-overlay {
-    position: static;
-    opacity: 1;
-    background: none;
-    padding: var(--space-3) 0 0;
-    display: block;
-  }
-  .portfolio__cat-overlay .portfolio__cat-desc {
-    color: var(--ink-muted);
-    text-align: left;
-    font-size: var(--step-0);
-    max-width: 42ch;
-  }
+.portfolio__cat-tile.is-open .portfolio__cat-overlay .portfolio__cat-desc {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Dark placeholder for categories with no image yet */
@@ -2435,10 +2429,12 @@ em { font-style: italic; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .portfolio__cat-image img {
+  .portfolio__cat-image img,
+  .portfolio__cat-overlay,
+  .portfolio__cat-overlay .portfolio__cat-desc {
     transition: none;
   }
-  .portfolio__cat-tile:hover .portfolio__cat-image img {
+  .portfolio__cat-tile.is-open .portfolio__cat-image img {
     transform: none;
   }
 }
