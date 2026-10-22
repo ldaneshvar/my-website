@@ -132,34 +132,45 @@
       <div class="container">
         <header class="portfolio__section-head">
           <span class="portfolio__section-index" aria-hidden="true">02</span>
-          <h2 class="portfolio__section-title" id="design-label">Marketing &amp; Design</h2>
+          <h2 class="portfolio__section-title" id="design-label">Digital Projects</h2>
           <span class="portfolio__section-rule" aria-hidden="true"></span>
         </header>
       </div>
-      <div class="portfolio__grid portfolio__grid--design">
-        <article class="portfolio__card">
-          <div class="portfolio__thumb"><span>Design 1</span></div>
-          <div class="portfolio__meta-row">
-            <h2 class="portfolio__card-title">Project title</h2>
-            <p class="portfolio__card-sub">Brief description &middot; 2026</p>
-          </div>
-        </article>
+      <div class="portfolio__spread">
 
-        <article class="portfolio__card">
-          <div class="portfolio__thumb"><span>Design 2</span></div>
-          <div class="portfolio__meta-row">
-            <h2 class="portfolio__card-title">Project title</h2>
-            <p class="portfolio__card-sub">Brief description &middot; 2026</p>
+        <div class="portfolio__spread-row">
+          <button class="portfolio__spread-video portfolio__spread-image" type="button" data-project="wall-street-academy" aria-label="Open Wall Street Academy project">
+            <img src="/project-wall-street-academy.jpg" alt="Wall Street Academy brochure cover" loading="lazy" width="1236" height="1600">
+          </button>
+          <div class="portfolio__spread-text">
+            <p class="portfolio__spread-type">Brochure &middot; 2024</p>
+            <h3>Wall Street Academy</h3>
+            <p class="portfolio__spread-desc">A print brochure for an academic program introducing students to the fundamentals of financial markets.</p>
           </div>
-        </article>
+        </div>
 
-        <article class="portfolio__card">
-          <div class="portfolio__thumb"><span>Design 3</span></div>
-          <div class="portfolio__meta-row">
-            <h2 class="portfolio__card-title">Project title</h2>
-            <p class="portfolio__card-sub">Brief description &middot; 2026</p>
+        <div class="portfolio__spread-row portfolio__spread-row--flip">
+          <button class="portfolio__spread-video portfolio__spread-image" type="button" data-project="somhp-brochure" aria-label="Open SOMHP Brochure project">
+            <img src="/project-somhp-brochure.jpg" alt="SOMHP brochure cover" loading="lazy" width="1600" height="1236">
+          </button>
+          <div class="portfolio__spread-text">
+            <p class="portfolio__spread-type">Brochure &middot; 2024</p>
+            <h3>SOMHP Brochure</h3>
+            <p class="portfolio__spread-desc">A brochure for the San Francisco Office of Minority Health Programs.</p>
           </div>
-        </article>
+        </div>
+
+        <div class="portfolio__spread-row">
+          <button class="portfolio__spread-video portfolio__spread-image" type="button" data-project="lower-fillmore" aria-label="Open Lower Fillmore research project">
+            <img src="/project-lighting-and-safety-lower-fillmore.jpg" alt="Lighting and Safety, Lower Fillmore research report cover" loading="lazy" width="1600" height="1236">
+          </button>
+          <div class="portfolio__spread-text">
+            <p class="portfolio__spread-type">Research report &middot; 2024</p>
+            <h3>Lighting &amp; Safety, Lower Fillmore</h3>
+            <p class="portfolio__spread-desc">A research-driven report on lighting and public safety in the Lower Fillmore neighborhood of San Francisco.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -184,6 +195,125 @@
     <p class="footer__set" data-sf-time>San Francisco</p>
   </div>
 </footer>
+
+<!-- Project overlay (opens from Digital Projects section) -->
+<div class="project-overlay" id="project-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="overlay-title" tabindex="-1">
+  <button class="project-overlay__close" type="button" aria-label="Close project">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="project-overlay__content">
+    <p class="project-overlay__meta" id="overlay-meta"></p>
+    <h2 class="project-overlay__title" id="overlay-title"></h2>
+    <img class="project-overlay__hero" id="overlay-hero" src="" alt="">
+    <div class="project-overlay__body">
+      <p class="project-overlay__description" id="overlay-desc"></p>
+      <dl class="project-overlay__details">
+        <div><dt>Role</dt><dd id="overlay-role"></dd></div>
+        <div><dt>Tools</dt><dd id="overlay-tools"></dd></div>
+      </dl>
+    </div>
+    <div class="project-overlay__gallery" id="overlay-gallery" hidden></div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const overlay = document.getElementById('project-overlay');
+    if (!overlay) return;
+    const closeBtn = overlay.querySelector('.project-overlay__close');
+    const titleEl = document.getElementById('overlay-title');
+    const metaEl = document.getElementById('overlay-meta');
+    const descEl = document.getElementById('overlay-desc');
+    const roleEl = document.getElementById('overlay-role');
+    const toolsEl = document.getElementById('overlay-tools');
+    const heroEl = document.getElementById('overlay-hero');
+    const galleryEl = document.getElementById('overlay-gallery');
+    let lastFocusedElement = null;
+
+    const projects = {
+      'wall-street-academy': {
+        title: 'Wall Street Academy',
+        meta: 'Brochure · 2024',
+        hero: '/project-wall-street-academy.jpg',
+        heroAlt: 'Wall Street Academy brochure cover',
+        description: 'A print brochure introducing students to Wall Street Academy, an academic program covering the fundamentals of financial markets. [Add a paragraph on the creative process: what you were trying to communicate, how you approached layout and typography, and what you learned.]',
+        role: 'Design & layout',
+        tools: 'Adobe InDesign',
+        gallery: []
+      },
+      'somhp-brochure': {
+        title: 'SOMHP Brochure',
+        meta: 'Brochure · 2024',
+        hero: '/project-somhp-brochure.jpg',
+        heroAlt: 'SOMHP brochure cover',
+        description: 'A brochure for the San Francisco Office of Minority Health Programs. [Add a paragraph on the creative process: what you were trying to communicate, how you approached layout and typography, and what you learned.]',
+        role: 'Design & layout',
+        tools: 'Adobe InDesign',
+        gallery: []
+      },
+      'lower-fillmore': {
+        title: 'Lighting & Safety, Lower Fillmore',
+        meta: 'Research report · 2024',
+        hero: '/project-lighting-and-safety-lower-fillmore.jpg',
+        heroAlt: 'Lighting and Safety, Lower Fillmore research report cover',
+        description: 'A research-driven report on lighting and public safety in the Lower Fillmore neighborhood of San Francisco. [Add a paragraph on the research question, methods, and what the report concluded.]',
+        role: 'Research & design',
+        tools: 'Adobe InDesign',
+        gallery: []
+      }
+    };
+
+    function openProject(id) {
+      const p = projects[id];
+      if (!p) return;
+      lastFocusedElement = document.activeElement;
+      titleEl.textContent = p.title;
+      metaEl.textContent = p.meta;
+      descEl.textContent = p.description;
+      roleEl.textContent = p.role;
+      toolsEl.textContent = p.tools;
+      heroEl.src = p.hero;
+      heroEl.alt = p.heroAlt || '';
+      if (p.gallery && p.gallery.length) {
+        galleryEl.innerHTML = p.gallery.map(function (g) {
+          return '<img src="' + g.src + '" alt="' + (g.alt || '') + '" loading="lazy">';
+        }).join('');
+        galleryEl.hidden = false;
+      } else {
+        galleryEl.innerHTML = '';
+        galleryEl.hidden = true;
+      }
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      overlay.scrollTop = 0;
+      requestAnimationFrame(function () { closeBtn.focus(); });
+    }
+
+    function closeProject() {
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+      }
+    }
+
+    document.querySelectorAll('[data-project]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        openProject(btn.dataset.project);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeProject);
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closeProject();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.getAttribute('aria-hidden') === 'false') {
+        closeProject();
+      }
+    });
+  })();
+</script>
 
 <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
 <script src="/script.js"></script>
