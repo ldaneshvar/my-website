@@ -2285,7 +2285,7 @@ em { font-style: italic; }
 .portfolio__cat-tile {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 10px;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
