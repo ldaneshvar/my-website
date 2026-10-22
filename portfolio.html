@@ -83,11 +83,17 @@
               <img src="/category-academic.jpg" alt="" loading="lazy" width="1200" height="1200">
               <div class="portfolio__cat-icon" aria-hidden="true">
                 <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M34 20 h26 l10 10 v48 h-36 z"/>
-                  <path d="M24 32 h26 l10 10 v48 h-36 z"/>
-                  <line x1="31" y1="54" x2="54" y2="54"/>
-                  <line x1="31" y1="64" x2="54" y2="64"/>
-                  <line x1="31" y1="74" x2="46" y2="74"/>
+                  <!-- Back document (behind, offset up and right) -->
+                  <path d="M42 18 L60 18 L68 26 L68 70 L42 70 Z"/>
+                  <path d="M60 18 L60 26 L68 26"/>
+                  <!-- Front document (in front, offset down and left) -->
+                  <path d="M32 30 L52 30 L60 38 L60 82 L32 82 Z"/>
+                  <path d="M52 30 L52 38 L60 38"/>
+                  <!-- Text lines on the front document -->
+                  <line x1="38" y1="50" x2="54" y2="50"/>
+                  <line x1="38" y1="58" x2="54" y2="58"/>
+                  <line x1="38" y1="66" x2="54" y2="66"/>
+                  <line x1="38" y1="74" x2="48" y2="74"/>
                 </svg>
               </div>
               <div class="portfolio__cat-overlay">
@@ -104,9 +110,12 @@
               <img src="/category-professional.jpg" alt="" loading="lazy" width="1200" height="1200">
               <div class="portfolio__cat-icon" aria-hidden="true">
                 <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="18" y="36" width="64" height="44" rx="2"/>
-                  <path d="M38 36 v-7 a4 4 0 0 1 4 -4 h16 a4 4 0 0 1 4 4 v7"/>
-                  <rect x="43" y="52" width="14" height="10" rx="1"/>
+                  <!-- Briefcase body with slightly rounded corners -->
+                  <rect x="16" y="38" width="68" height="44" rx="2.5"/>
+                  <!-- Handle on top -->
+                  <path d="M40 38 L40 30 A3 3 0 0 1 43 27 L57 27 A3 3 0 0 1 60 30 L60 38"/>
+                  <!-- Center clasp / lock plate -->
+                  <rect x="43" y="52" width="14" height="16" rx="1.5"/>
                 </svg>
               </div>
               <div class="portfolio__cat-overlay">
@@ -123,12 +132,15 @@
               <img src="/category-community.jpg" alt="" loading="lazy" width="1200" height="1200">
               <div class="portfolio__cat-icon" aria-hidden="true">
                 <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="50" cy="38" r="10"/>
-                  <path d="M34 82 v-14 a16 16 0 0 1 32 0 v14"/>
-                  <circle cx="26" cy="50" r="7"/>
-                  <path d="M14 82 v-10 a12 12 0 0 1 20 -5"/>
-                  <circle cx="74" cy="50" r="7"/>
-                  <path d="M86 82 v-10 a12 12 0 0 0 -20 -5"/>
+                  <!-- Center figure (taller, bigger head) -->
+                  <circle cx="50" cy="30" r="11"/>
+                  <path d="M34 82 L34 58 A16 16 0 0 1 66 58 L66 82"/>
+                  <!-- Left figure (smaller, lower) -->
+                  <circle cx="22" cy="46" r="7"/>
+                  <path d="M12 82 L12 66 A10 10 0 0 1 32 66 L32 82"/>
+                  <!-- Right figure (smaller, lower) -->
+                  <circle cx="78" cy="46" r="7"/>
+                  <path d="M68 82 L68 66 A10 10 0 0 1 88 66 L88 82"/>
                 </svg>
               </div>
               <div class="portfolio__cat-overlay">
@@ -145,9 +157,16 @@
               <img src="/category-personal.jpg" alt="" loading="lazy" width="1200" height="1200">
               <div class="portfolio__cat-icon" aria-hidden="true">
                 <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M15 36 h18 l5 -7 h24 l5 7 h18 v38 h-70 z"/>
-                  <circle cx="50" cy="56" r="12"/>
-                  <circle cx="50" cy="56" r="6"/>
+                  <!-- Camera body -->
+                  <rect x="14" y="36" width="72" height="42" rx="2"/>
+                  <!-- Viewfinder bump on top (centered) -->
+                  <path d="M42 36 L44 29 L58 29 L60 36"/>
+                  <!-- Flash dot (top left) -->
+                  <circle cx="24" cy="42" r="1.6"/>
+                  <!-- Lens: outer ring, inner ring, center dot -->
+                  <circle cx="50" cy="58" r="12"/>
+                  <circle cx="50" cy="58" r="7"/>
+                  <circle cx="50" cy="58" r="2.5"/>
                 </svg>
               </div>
               <div class="portfolio__cat-overlay">

@@ -2317,7 +2317,8 @@ em { font-style: italic; }
 }
 
 /* Semi-transparent black overlay that fades in on hover — darkens the
-   floral image without washing out its red tones or texture. */
+   floral image without washing out its red tones or texture. Sits in
+   its own stacking layer BEHIND the icon and the description. */
 .portfolio__cat-image::after {
   content: "";
   position: absolute;
@@ -2325,6 +2326,7 @@ em { font-style: italic; }
   background: rgba(0, 0, 0, 0.65);
   opacity: 0;
   pointer-events: none;
+  z-index: 1;
   transition: opacity 600ms var(--ease-out-quart);
 }
 
@@ -2342,6 +2344,7 @@ em { font-style: italic; }
   justify-content: center;
   color: rgba(255, 255, 255, 0.92);
   pointer-events: none;
+  z-index: 2;
   transition: opacity 600ms var(--ease-out-quart);
 }
 .portfolio__cat-icon svg {
@@ -2354,7 +2357,7 @@ em { font-style: italic; }
   opacity: 0;
 }
 
-/* Description overlay — fades in on hover */
+/* Description overlay — fades in on hover, sits on top of darken layer */
 .portfolio__cat-overlay {
   position: absolute;
   inset: 0;
@@ -2364,6 +2367,7 @@ em { font-style: italic; }
   padding: clamp(var(--space-4), 2.4vw, var(--space-7));
   opacity: 0;
   pointer-events: none;
+  z-index: 3;
   transition: opacity 600ms var(--ease-out-quart);
 }
 
@@ -2378,11 +2382,12 @@ em { font-style: italic; }
   font-weight: 350;
   font-size: clamp(1rem, 1.3vw, 1.2rem);
   line-height: 1.55;
-  color: oklch(0.95 0.012 78);
+  color: #F5F0E8;
   text-align: center;
   margin: 0;
   max-width: 28ch;
   font-variation-settings: "opsz" 48, "SOFT" 100;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* Touch devices: no hover state — show the description as plain text
