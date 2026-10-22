@@ -2329,6 +2329,15 @@ em { font-style: italic; }
   transition: opacity 500ms var(--ease-out-quart);
 }
 
+/* The camera source photo cropped tighter around its icon, so after
+   extraction the camera appears visually larger than the other three.
+   Scaling the icon layer down on just this tile brings it back to the
+   same optical weight as the paper / briefcase / humans icons. */
+.portfolio__cat-grid > a:nth-child(4) .portfolio__cat-icon {
+  transform: scale(0.78);
+  transform-origin: center;
+}
+
 
 .portfolio__cat-tile:hover .portfolio__cat-image .portfolio__cat-icon,
 .portfolio__cat-tile:focus-visible .portfolio__cat-image .portfolio__cat-icon {
