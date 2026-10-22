@@ -3023,7 +3023,7 @@ em { font-style: italic; }
   letter-spacing: -0.015em;
   line-height: 1.3;
   color: oklch(0.97 0.008 78);
-  margin: 0 0 clamp(var(--space-8), 5vw, var(--space-12));
+  margin: 0 0 clamp(var(--space-5), 3vw, var(--space-8));
   font-variation-settings: "opsz" 72, "SOFT" 60, "WONK" 0;
   text-wrap: balance;
   max-width: none;
