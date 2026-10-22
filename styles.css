@@ -2210,19 +2210,169 @@ em { font-style: italic; }
   }
 }
 
-/* Digital Projects landing — reuses .portfolio__spread rows (same as Film) */
-
-/* Override higher-specificity display when hidden attribute is applied */
-#portfolio-categories[hidden],
-.portfolio__cat-view[hidden] {
-  display: none !important;
+/* Digital Projects landing — 2x2 grid of square category tiles */
+.portfolio__categories {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(var(--space-8), 4vw, var(--space-12));
+  max-width: 1100px;
+  margin-inline: auto;
 }
 
-/* Empty image slot for categories without an image yet */
-.portfolio__cat-empty {
-  aspect-ratio: 16 / 9;
+@media (min-width: 700px) {
+  .portfolio__categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.portfolio__cat-tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.portfolio__cat-tile:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* Square image container — enforces equal tile dimensions regardless of image aspect */
+.portfolio__cat-image {
+  aspect-ratio: 1 / 1;
   background: var(--bg-deep);
+  overflow: hidden;
+}
+
+.portfolio__cat-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--ease-out-quart), opacity 350ms ease;
+}
+
+.portfolio__cat-tile:hover .portfolio__cat-image img,
+.portfolio__cat-tile:focus-visible .portfolio__cat-image img {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+/* Dark placeholder for categories with no image yet */
+.portfolio__cat-image--empty {
   border: 1px solid var(--hairline);
+}
+
+.portfolio__cat-text {
+  padding-inline: var(--space-2);
+}
+
+.portfolio__cat-type {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--space-3);
+  max-width: none;
+}
+
+.portfolio__cat-title {
+  font-family: var(--font-display);
+  font-weight: 350;
+  font-size: clamp(1.6rem, 2.7vw, 2.1rem);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  margin: 0 0 var(--space-3);
+  color: var(--ink);
+  font-variation-settings: "opsz" 72, "SOFT" 60;
+  transition: color 240ms var(--ease-out-quart);
+}
+
+.portfolio__cat-tile:hover .portfolio__cat-title,
+.portfolio__cat-tile:focus-visible .portfolio__cat-title {
+  color: var(--accent);
+}
+
+.portfolio__cat-desc {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 350;
+  font-size: var(--step-0);
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin: 0;
+  max-width: 42ch;
+  font-variation-settings: "opsz" 24, "SOFT" 100;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio__cat-image img {
+    transition: none;
+  }
+  .portfolio__cat-tile:hover .portfolio__cat-image img {
+    transform: none;
+  }
+}
+
+/* Category page header (used on portfolio-academic.html, etc.) */
+.portfolio__cat-page-head {
+  margin-block: clamp(var(--space-12), 8vw, var(--space-20)) clamp(var(--space-10), 6vw, var(--space-16));
+}
+
+.portfolio__cat-back {
+  display: inline-block;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  text-decoration: none;
+  margin-block-end: var(--space-8);
+  transition: color 220ms ease;
+}
+
+.portfolio__cat-back:hover,
+.portfolio__cat-back:focus-visible {
+  color: var(--accent);
+}
+
+.portfolio__cat-page-type {
+  margin: 0 0 var(--space-4);
+}
+
+.portfolio__cat-page-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  margin: 0 0 var(--space-5);
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+}
+
+.portfolio__cat-page-sub {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 350;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: var(--ink-muted);
+  margin: 0;
+  max-width: 50ch;
+  font-variation-settings: "opsz" 36, "SOFT" 100;
+}
+
+.portfolio__cat-empty {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 350;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  color: var(--ink-muted);
+  margin: var(--space-10) 0 var(--space-16);
+  max-width: none;
 }
 
 /* Category view — opens when a tile is clicked */
