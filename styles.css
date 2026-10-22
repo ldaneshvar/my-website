@@ -2132,6 +2132,18 @@ em { font-style: italic; }
   .portfolio__spread-row--flip .portfolio__spread-text { order: 1; text-align: right; }
 }
 
+.portfolio__spread-video {
+  position: relative;
+  outline: 1px solid transparent;
+  outline-offset: 0;
+  transition: outline-color 300ms var(--ease-out-quart), outline-offset 300ms var(--ease-out-quart);
+}
+
+.portfolio__spread-video:hover {
+  outline-color: var(--accent);
+  outline-offset: 6px;
+}
+
 .portfolio__spread-video video {
   display: block;
   width: 100%;
