@@ -2952,16 +2952,18 @@ em { font-style: italic; }
 .portfolio__closer {
   position: relative;
   width: 100%;
-  min-height: clamp(600px, 75vh, 900px);
+  min-height: clamp(480px, 62vh, 760px);
   background: var(--bg);
   display: grid;
   place-items: center;
-  padding-block: clamp(var(--space-32), 24vh, var(--space-48)) clamp(var(--space-16), 10vw, var(--space-24));
+  padding-block: clamp(var(--space-6), 4vh, var(--space-10)) clamp(var(--space-16), 10vw, var(--space-24));
   padding-inline: clamp(var(--space-5), 5vw, var(--space-10));
   overflow: hidden;
 }
 
-/* Botanical image layer — long multi-stop fade so black bleeds into red with no boundary */
+/* Botanical image layer — multi-stop fade so black bleeds into red with no boundary.
+   The transparent-to-red ramp begins almost immediately so the artwork emerges as
+   the video section ends instead of leaving a tall slab of empty black between. */
 .portfolio__closer::before {
   content: "";
   position: absolute;
@@ -2972,24 +2974,22 @@ em { font-style: italic; }
   background-repeat: no-repeat;
   -webkit-mask-image: linear-gradient(180deg,
     transparent 0%,
-    transparent 15%,
-    rgba(0, 0, 0, 0.04) 25%,
-    rgba(0, 0, 0, 0.12) 35%,
-    rgba(0, 0, 0, 0.28) 45%,
-    rgba(0, 0, 0, 0.5) 55%,
-    rgba(0, 0, 0, 0.75) 68%,
-    rgba(0, 0, 0, 0.92) 80%,
-    #000 92%);
+    rgba(0, 0, 0, 0.04) 8%,
+    rgba(0, 0, 0, 0.14) 18%,
+    rgba(0, 0, 0, 0.3) 30%,
+    rgba(0, 0, 0, 0.52) 42%,
+    rgba(0, 0, 0, 0.76) 56%,
+    rgba(0, 0, 0, 0.92) 70%,
+    #000 84%);
           mask-image: linear-gradient(180deg,
     transparent 0%,
-    transparent 15%,
-    rgba(0, 0, 0, 0.04) 25%,
-    rgba(0, 0, 0, 0.12) 35%,
-    rgba(0, 0, 0, 0.28) 45%,
-    rgba(0, 0, 0, 0.5) 55%,
-    rgba(0, 0, 0, 0.75) 68%,
-    rgba(0, 0, 0, 0.92) 80%,
-    #000 92%);
+    rgba(0, 0, 0, 0.04) 8%,
+    rgba(0, 0, 0, 0.14) 18%,
+    rgba(0, 0, 0, 0.3) 30%,
+    rgba(0, 0, 0, 0.52) 42%,
+    rgba(0, 0, 0, 0.76) 56%,
+    rgba(0, 0, 0, 0.92) 70%,
+    #000 84%);
 }
 
 /* Readability overlay — stays out of the top area, lightly tints near text */
@@ -3011,6 +3011,10 @@ em { font-style: italic; }
   margin-inline: auto;
   position: relative;
   z-index: 1;
+  /* Push the statement + email down from center into the red artwork.
+     Clamped so the shift scales with viewport (less on mobile, more on
+     desktop) without pressing content against the credit at the bottom. */
+  transform: translateY(clamp(40px, 9vw, 110px));
 }
 
 .portfolio__closer-statement {
