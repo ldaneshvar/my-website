@@ -2363,7 +2363,8 @@ em { font-style: italic; }
 }
 
 .portfolio__cat-tile:hover .portfolio__cat-title,
-.portfolio__cat-tile:focus-visible .portfolio__cat-title {
+.portfolio__cat-tile:focus-visible .portfolio__cat-title,
+.portfolio__cat-tile:active .portfolio__cat-title {
   color: #B77B60;
 }
 
