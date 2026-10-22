@@ -136,42 +136,119 @@
           <span class="portfolio__section-rule" aria-hidden="true"></span>
         </header>
       </div>
-      <div class="portfolio__spread">
 
-        <div class="portfolio__spread-row">
-          <button class="portfolio__spread-video portfolio__spread-image" type="button" data-project="wall-street-academy" aria-label="Open Wall Street Academy project">
-            <img src="/project-wall-street-academy.jpg" alt="Wall Street Academy brochure cover" loading="lazy" width="1236" height="1600">
-          </button>
-          <div class="portfolio__spread-text">
-            <p class="portfolio__spread-type">Brochure &middot; 2024</p>
-            <h3>Wall Street Academy</h3>
-            <p class="portfolio__spread-desc">A print brochure for an academic program introducing students to the fundamentals of financial markets.</p>
+      <!-- 2x2 category tiles (landing view) -->
+      <div class="portfolio__categories" id="portfolio-categories">
+        <button class="portfolio__cat-tile" type="button" data-category="academic" aria-label="Open Academic Work">
+          <div class="portfolio__cat-image">
+            <img src="/project-wall-street-academy.jpg" alt="" loading="lazy">
           </div>
-        </div>
-
-        <div class="portfolio__spread-row portfolio__spread-row--flip">
-          <button class="portfolio__spread-video portfolio__spread-image" type="button" data-project="somhp-brochure" aria-label="Open SOMHP Brochure project">
-            <img src="/project-somhp-brochure.jpg" alt="SOMHP brochure cover" loading="lazy" width="1600" height="1236">
-          </button>
-          <div class="portfolio__spread-text">
-            <p class="portfolio__spread-type">Brochure &middot; 2024</p>
-            <h3>SOMHP Brochure</h3>
-            <p class="portfolio__spread-desc">A brochure for the San Francisco Office of Minority Health Programs.</p>
+          <div class="portfolio__cat-meta">
+            <h3>Academic Work</h3>
+            <p>School &amp; coursework</p>
           </div>
-        </div>
+        </button>
 
-        <div class="portfolio__spread-row">
-          <button class="portfolio__spread-video portfolio__spread-image" type="button" data-project="lower-fillmore" aria-label="Open Lower Fillmore research project">
-            <img src="/project-lighting-and-safety-lower-fillmore.jpg" alt="Lighting and Safety, Lower Fillmore research report cover" loading="lazy" width="1600" height="1236">
-          </button>
-          <div class="portfolio__spread-text">
-            <p class="portfolio__spread-type">Research report &middot; 2024</p>
-            <h3>Lighting &amp; Safety, Lower Fillmore</h3>
-            <p class="portfolio__spread-desc">A research-driven report on lighting and public safety in the Lower Fillmore neighborhood of San Francisco.</p>
+        <button class="portfolio__cat-tile" type="button" data-category="professional" aria-label="Open Professional Work">
+          <div class="portfolio__cat-image">
+            <img src="/project-somhp-brochure.jpg" alt="" loading="lazy">
           </div>
-        </div>
+          <div class="portfolio__cat-meta">
+            <h3>Professional Work</h3>
+            <p>Clients &amp; agencies</p>
+          </div>
+        </button>
 
+        <button class="portfolio__cat-tile" type="button" data-category="community" aria-label="Open Campus and Community">
+          <div class="portfolio__cat-image portfolio__cat-image--placeholder">
+            <span>Coming soon</span>
+          </div>
+          <div class="portfolio__cat-meta">
+            <h3>Campus &amp; Community</h3>
+            <p>Student life &amp; local work</p>
+          </div>
+        </button>
+
+        <button class="portfolio__cat-tile" type="button" data-category="personal" aria-label="Open Personal Projects">
+          <div class="portfolio__cat-image portfolio__cat-image--placeholder">
+            <span>Coming soon</span>
+          </div>
+          <div class="portfolio__cat-meta">
+            <h3>Personal Projects</h3>
+            <p>Experiments &amp; side work</p>
+          </div>
+        </button>
       </div>
+
+      <!-- Category view: Academic -->
+      <div class="portfolio__cat-view" data-cat-view="academic" hidden>
+        <div class="container">
+          <button class="portfolio__cat-back" type="button" data-cat-back><span aria-hidden="true">&larr;</span> Back to categories</button>
+          <p class="portfolio__cat-eyebrow">Academic Work</p>
+        </div>
+        <div class="portfolio__spread">
+          <div class="portfolio__spread-row">
+            <button class="portfolio__spread-video portfolio__spread-image" type="button" data-project="wall-street-academy" aria-label="Open Wall Street Academy project">
+              <img src="/project-wall-street-academy.jpg" alt="Wall Street Academy brochure cover" loading="lazy" width="1236" height="1600">
+            </button>
+            <div class="portfolio__spread-text">
+              <p class="portfolio__spread-type">Brochure &middot; 2024</p>
+              <h3>Wall Street Academy</h3>
+              <p class="portfolio__spread-desc">A print brochure for an academic program introducing students to the fundamentals of financial markets.</p>
+            </div>
+          </div>
+
+          <div class="portfolio__spread-row portfolio__spread-row--flip">
+            <button class="portfolio__spread-video portfolio__spread-image" type="button" data-project="lower-fillmore" aria-label="Open Lower Fillmore research project">
+              <img src="/project-lighting-and-safety-lower-fillmore.jpg" alt="Lighting and Safety, Lower Fillmore research report cover" loading="lazy" width="1600" height="1236">
+            </button>
+            <div class="portfolio__spread-text">
+              <p class="portfolio__spread-type">Research report &middot; 2024</p>
+              <h3>Lighting &amp; Safety, Lower Fillmore</h3>
+              <p class="portfolio__spread-desc">A research-driven report on lighting and public safety in the Lower Fillmore neighborhood of San Francisco.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category view: Professional -->
+      <div class="portfolio__cat-view" data-cat-view="professional" hidden>
+        <div class="container">
+          <button class="portfolio__cat-back" type="button" data-cat-back><span aria-hidden="true">&larr;</span> Back to categories</button>
+          <p class="portfolio__cat-eyebrow">Professional Work</p>
+        </div>
+        <div class="portfolio__spread">
+          <div class="portfolio__spread-row">
+            <button class="portfolio__spread-video portfolio__spread-image" type="button" data-project="somhp-brochure" aria-label="Open SOMHP Brochure project">
+              <img src="/project-somhp-brochure.jpg" alt="SOMHP brochure cover" loading="lazy" width="1600" height="1236">
+            </button>
+            <div class="portfolio__spread-text">
+              <p class="portfolio__spread-type">Brochure &middot; 2024</p>
+              <h3>SOMHP Brochure</h3>
+              <p class="portfolio__spread-desc">A brochure for the San Francisco Office of Minority Health Programs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category view: Campus & Community -->
+      <div class="portfolio__cat-view" data-cat-view="community" hidden>
+        <div class="container">
+          <button class="portfolio__cat-back" type="button" data-cat-back><span aria-hidden="true">&larr;</span> Back to categories</button>
+          <p class="portfolio__cat-eyebrow">Campus &amp; Community</p>
+          <p class="portfolio__cat-empty">Projects coming soon.</p>
+        </div>
+      </div>
+
+      <!-- Category view: Personal -->
+      <div class="portfolio__cat-view" data-cat-view="personal" hidden>
+        <div class="container">
+          <button class="portfolio__cat-back" type="button" data-cat-back><span aria-hidden="true">&larr;</span> Back to categories</button>
+          <p class="portfolio__cat-eyebrow">Personal Projects</p>
+          <p class="portfolio__cat-empty">Projects coming soon.</p>
+        </div>
+      </div>
+
     </section>
 
     <div class="container">
@@ -307,10 +384,46 @@
     overlay.addEventListener('click', function (e) {
       if (e.target === overlay) closeProject();
     });
+    // Category tile navigation
+    const categoriesGrid = document.getElementById('portfolio-categories');
+    const catTiles = document.querySelectorAll('[data-category]');
+    const catViews = document.querySelectorAll('[data-cat-view]');
+    const catBacks = document.querySelectorAll('[data-cat-back]');
+    const sectionTop = document.getElementById('design-label');
+
+    function showCategory(id) {
+      if (!categoriesGrid) return;
+      categoriesGrid.hidden = true;
+      catViews.forEach(function (v) {
+        v.hidden = (v.dataset.catView !== id);
+      });
+      if (sectionTop) sectionTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function backToCategories() {
+      if (!categoriesGrid) return;
+      catViews.forEach(function (v) { v.hidden = true; });
+      categoriesGrid.hidden = false;
+      if (sectionTop) sectionTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    catTiles.forEach(function (t) {
+      t.addEventListener('click', function () { showCategory(t.dataset.category); });
+    });
+    catBacks.forEach(function (b) {
+      b.addEventListener('click', backToCategories);
+    });
+
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && overlay.getAttribute('aria-hidden') === 'false') {
+      if (e.key !== 'Escape') return;
+      // Project overlay has top priority
+      if (overlay.getAttribute('aria-hidden') === 'false') {
         closeProject();
+        return;
       }
+      // Then fall back to closing an open category view
+      const anyCatOpen = Array.prototype.some.call(catViews, function (v) { return !v.hidden; });
+      if (anyCatOpen) backToCategories();
     });
   })();
 </script>
