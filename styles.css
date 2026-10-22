@@ -2934,7 +2934,7 @@ em { font-style: italic; }
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('/footer-botanical.jpg');
+  background-image: url('/footer-botanical.jpg?v=2');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
