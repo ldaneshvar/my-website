@@ -2916,28 +2916,56 @@ em { font-style: italic; }
   max-width: none;
 }
 
-/* Standalone red botanical banner — purely decorative visual chapter break */
-.portfolio__botanical-banner {
-  width: 100%;
-  height: clamp(220px, 28vw, 340px);
-  background-image: url('/footer-botanical.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Minimalist black contact section beneath the banner */
+/* Cinematic closing footer: botanical fades up from black at the top edge */
 .portfolio__closer {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
   background: var(--bg);
   display: grid;
   place-items: center;
   padding-block: clamp(var(--space-16), 10vw, var(--space-24));
   padding-inline: clamp(var(--space-5), 5vw, var(--space-10));
+  overflow: hidden;
+}
+
+/* Botanical image layer — top 220px fades from transparent to full so the image emerges from the black above */
+.portfolio__closer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/footer-botanical.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0px, #000 220px);
+          mask-image: linear-gradient(180deg, transparent 0px, #000 220px);
+}
+
+/* Readability overlay — subtle dark tint; starts transparent so it doesn't fight the fade-in */
+.portfolio__closer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 180px,
+    rgba(0, 0, 0, 0.30) 260px,
+    rgba(0, 0, 0, 0.20) 60%,
+    rgba(0, 0, 0, 0.40) 100%);
+  pointer-events: none;
+}
+
+.portfolio__closer-inner {
+  position: relative;
+  z-index: 1;
 }
 
 .portfolio__closer-inner {
   text-align: center;
   max-width: 720px;
+  position: relative;
+  z-index: 1;
 }
 
 .portfolio__closer-eyebrow {
