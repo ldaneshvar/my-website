@@ -1996,13 +1996,13 @@ em { font-style: italic; }
 
 .portfolio__caption {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-weight: 350;
   font-size: clamp(1.4rem, 2.6vw, 2rem);
   color: var(--accent);
   margin: 0 0 var(--space-4);
   max-width: none;
-  font-variation-settings: "opsz" 48, "SOFT" 100, "WONK" 1;
+  font-variation-settings: "opsz" 48, "SOFT" 100, "WONK" 0;
 }
 
 .portfolio__meta {
