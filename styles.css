@@ -2210,122 +2210,19 @@ em { font-style: italic; }
   }
 }
 
-/* Digital Projects — category tile grid (landing view) */
-.portfolio__categories {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(var(--space-6), 3vw, var(--space-10));
-  padding-inline: clamp(var(--space-3), 3vw, var(--space-8));
-  max-width: 1100px;
-  margin-inline: auto;
-}
+/* Digital Projects landing — reuses .portfolio__spread rows (same as Film) */
 
 /* Override higher-specificity display when hidden attribute is applied */
-.portfolio__categories[hidden],
+#portfolio-categories[hidden],
 .portfolio__cat-view[hidden] {
   display: none !important;
 }
 
-@media (min-width: 700px) {
-  .portfolio__categories {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.portfolio__cat-tile {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-  width: 100%;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  text-align: left;
-  color: inherit;
-}
-
-.portfolio__cat-tile:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
-}
-
-.portfolio__cat-image {
-  position: relative;
-  aspect-ratio: 1 / 1;
+/* Empty image slot for categories without an image yet */
+.portfolio__cat-empty {
+  aspect-ratio: 16 / 9;
   background: var(--bg-deep);
-  overflow: hidden;
-}
-
-.portfolio__cat-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 600ms var(--ease-out-quart), opacity 350ms ease;
-}
-
-.portfolio__cat-tile:hover .portfolio__cat-image img,
-.portfolio__cat-tile:focus-visible .portfolio__cat-image img {
-  transform: scale(1.03);
-  opacity: 0.9;
-}
-
-.portfolio__cat-image--empty {
   border: 1px solid var(--hairline);
-  background: var(--bg-deep);
-}
-
-.portfolio__cat-text {
-  padding-inline: var(--space-2);
-}
-
-.portfolio__cat-type {
-  font-family: var(--font-body);
-  font-size: var(--step--1);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin: 0 0 var(--space-3);
-  max-width: none;
-}
-
-.portfolio__cat-title {
-  font-family: var(--font-display);
-  font-weight: 350;
-  font-size: clamp(1.6rem, 2.7vw, 2.1rem);
-  letter-spacing: -0.015em;
-  line-height: 1.1;
-  margin: 0 0 var(--space-3);
-  color: var(--ink);
-  font-variation-settings: "opsz" 72, "SOFT" 60;
-  transition: color 240ms var(--ease-out-quart);
-}
-
-.portfolio__cat-tile:hover .portfolio__cat-title,
-.portfolio__cat-tile:focus-visible .portfolio__cat-title {
-  color: var(--accent);
-}
-
-.portfolio__cat-desc {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 350;
-  font-size: var(--step-0);
-  line-height: 1.5;
-  color: var(--ink-muted);
-  margin: 0;
-  max-width: 42ch;
-  font-variation-settings: "opsz" 24, "SOFT" 100;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .portfolio__cat-image img {
-    transition: none;
-  }
-  .portfolio__cat-tile:hover .portfolio__cat-image img {
-    transform: none;
-  }
 }
 
 /* Category view — opens when a tile is clicked */
