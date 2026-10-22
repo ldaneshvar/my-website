@@ -2970,8 +2970,13 @@ em { font-style: italic; }
 }
 
 .portfolio__closer-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio__closer-inner {
   text-align: center;
-  max-width: 760px;
+  max-width: 720px;
   position: relative;
   z-index: 1;
 }
@@ -2979,11 +2984,11 @@ em { font-style: italic; }
 .portfolio__closer-eyebrow {
   font-family: var(--font-body);
   text-transform: uppercase;
-  letter-spacing: 0.36em;
-  font-size: 0.62rem;
-  font-weight: 400;
-  color: oklch(0.82 0.02 70);
-  margin: 0 0 clamp(var(--space-8), 5vw, var(--space-12));
+  letter-spacing: 0.3em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: oklch(0.88 0.02 70);
+  margin: 0 0 clamp(var(--space-5), 3vw, var(--space-8));
   max-width: none;
 }
 
@@ -2992,9 +2997,9 @@ em { font-style: italic; }
   font-weight: 300;
   font-size: clamp(2.4rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
-  line-height: 1.05;
+  line-height: 1;
   color: oklch(0.97 0.008 78);
-  margin: 0 0 clamp(var(--space-10), 6vw, var(--space-16));
+  margin: 0 0 clamp(var(--space-6), 4vw, var(--space-10));
   font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
   text-wrap: balance;
 }
