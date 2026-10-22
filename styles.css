@@ -2270,6 +2270,17 @@ em { font-style: italic; }
 /* Dark placeholder for categories with no image yet */
 .portfolio__cat-image--empty {
   border: 1px solid var(--hairline);
+  padding: var(--space-3);
+  text-align: center;
+}
+
+.portfolio__cat-image--empty span {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.62rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
 }
 
 .portfolio__cat-type {
