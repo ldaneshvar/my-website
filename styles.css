@@ -2040,11 +2040,6 @@ em { font-style: italic; }
   border-bottom: 1px solid var(--hairline);
 }
 
-/* Digital Projects only: pull the four-tile grid up closer to the
-   section's divider line (about 25-30% less gap than the default). */
-.portfolio__section:has(.portfolio__cat-grid) .portfolio__section-head {
-  margin-bottom: clamp(17px, 2.8vw, 28px);
-}
 
 .portfolio__section-index {
   font-family: var(--font-body);
@@ -2448,16 +2443,9 @@ em { font-style: italic; }
   transition: color 240ms var(--ease-out-quart);
 }
 
-/* Reserve 2 lines of title space on grid breakpoints so all images start at
-   the same Y. Align the text to the BOTTOM of that reserved space so short,
-   single-line titles sit as close to their image as the two-line ones do. */
-@media (min-width: 700px) {
-  .portfolio__cat-title {
-    min-height: calc(2 * 1.1em);
-    display: grid;
-    align-content: end;
-  }
-}
+/* Titles sit at their natural height; at the responsive widths the grid
+   is actually used (2-col and 4-col), all four fit on one line, so no
+   reserved min-height is needed and no empty space sits above the text. */
 
 .portfolio__cat-tile:hover .portfolio__cat-title,
 .portfolio__cat-tile:focus-visible .portfolio__cat-title,
