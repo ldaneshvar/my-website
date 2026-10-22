@@ -120,7 +120,21 @@
             </div>
             <div class="portfolio__cat-image">
               <img src="/category-personal.jpg" alt="" loading="lazy" width="1200" height="1200">
-              <img src="/category-personal-icon.png" alt="" aria-hidden="true" class="portfolio__cat-icon" loading="lazy">
+              <div class="portfolio__cat-icon portfolio__cat-icon--svg" aria-hidden="true">
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+                  <!-- Viewfinder bump on top -->
+                  <path d="M38 32 L42 24 L58 24 L62 32"/>
+                  <!-- Camera body with rounded corners -->
+                  <rect x="18" y="32" width="64" height="48" rx="3.5"/>
+                  <!-- Thin horizontal divider across the top strip -->
+                  <line x1="18" y1="44" x2="82" y2="44"/>
+                  <!-- Small flash / switch on upper left -->
+                  <rect x="25" y="37" width="6" height="3" rx="0.6"/>
+                  <!-- Lens: outer ring + inner ring -->
+                  <circle cx="50" cy="60" r="12"/>
+                  <circle cx="50" cy="60" r="7"/>
+                </svg>
+              </div>
               <div class="portfolio__cat-overlay">
                 <p class="portfolio__cat-desc">Experiments and side work. In preparation.</p>
               </div>

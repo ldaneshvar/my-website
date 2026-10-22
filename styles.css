@@ -2329,6 +2329,21 @@ em { font-style: italic; }
   transition: opacity 500ms var(--ease-out-quart);
 }
 
+/* SVG-rendered variant (for icons that need to be crisp at any size,
+   rather than an upscaled raster). Centers the SVG and sizes it to
+   match the proportion of the other three raster icons. */
+.portfolio__cat-image .portfolio__cat-icon--svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F5EFDF;
+}
+.portfolio__cat-image .portfolio__cat-icon--svg svg {
+  width: 44%;
+  height: 44%;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.35));
+}
+
 .portfolio__cat-tile:hover .portfolio__cat-image .portfolio__cat-icon,
 .portfolio__cat-tile:focus-visible .portfolio__cat-image .portfolio__cat-icon {
   opacity: 0;
