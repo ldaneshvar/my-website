@@ -1909,9 +1909,9 @@ em { font-style: italic; }
   --ink-muted:   oklch(0.70 0.014 70);
   --ink-soft:    oklch(0.52 0.012 60);
   --hairline:    oklch(0.28 0.015 60);
-  --accent:      oklch(0.80 0.120 50);
-  --accent-deep: oklch(0.88 0.120 50);
-  --accent-wash: oklch(0.22 0.030 40);
+  --accent:      oklch(0.55 0.215 24);
+  --accent-deep: oklch(0.63 0.220 26);
+  --accent-wash: oklch(0.22 0.080 22);
   background: var(--bg);
   color: var(--ink);
 }
