@@ -3049,18 +3049,20 @@ em { font-style: italic; }
   text-decoration-color: currentColor;
 }
 
-/* Narrower, more compact footer strip beneath the botanical banner */
-.page-portfolio .footer {
-  padding-block: var(--space-5);
-}
-
-.page-portfolio .footer__inner {
-  gap: var(--space-4);
-}
-
-.page-portfolio .footer__credit,
-.page-portfolio .footer__set {
-  font-size: 0.7rem;
+/* Copyright line tucked at the bottom of the botanical banner, in
+   place of the old black footer strip. */
+.portfolio__closer-credit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(var(--space-4), 2.4vw, var(--space-6));
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 245, 232, 0.72);
+  z-index: 1;
 }
 
 @media (max-width: 600px) {
