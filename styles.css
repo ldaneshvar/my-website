@@ -2655,7 +2655,7 @@ em { font-style: italic; }
   width: 92vw;
   max-width: 1500px;
   height: auto;
-  color: rgba(170, 22, 32, 0.09);
+  color: rgba(200, 32, 42, 0.22);
   transform: rotate(-4deg);
   transform-origin: center;
 }
@@ -2666,7 +2666,7 @@ em { font-style: italic; }
     width: 140vw;
     bottom: -8vh;
     right: -30vw;
-    color: rgba(170, 22, 32, 0.08);
+    color: rgba(200, 32, 42, 0.2);
   }
 }
 /* Keep page content layered above the decor. */
