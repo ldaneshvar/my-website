@@ -2583,6 +2583,53 @@ em { font-style: italic; }
   max-width: none;
 }
 
+/* Short descriptive note on a category subpage (e.g. Personal Projects
+   intro paragraph + external links row), when a full project spread
+   isn't appropriate yet. Upright serif body in warm gray, with a quiet
+   editorial link list beneath. */
+.portfolio__cat-note {
+  margin: clamp(var(--space-6), 4vw, var(--space-10)) 0 clamp(var(--space-16), 10vw, var(--space-24));
+  padding-inline: clamp(var(--space-3), 3vw, var(--space-8));
+  max-width: 1500px;
+  margin-inline: auto;
+}
+.portfolio__cat-note > p {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 350;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.65;
+  color: #CFC6BC;
+  max-width: 60ch;
+  margin: 0 0 clamp(var(--space-6), 3vw, var(--space-8));
+  font-variation-settings: "opsz" 36, "SOFT" 50;
+}
+.portfolio__cat-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) clamp(var(--space-8), 5vw, var(--space-12));
+}
+.portfolio__cat-links a {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--hairline);
+  text-underline-offset: 0.35em;
+  text-decoration-thickness: 1px;
+  transition: color 220ms ease, text-decoration-color 220ms ease;
+}
+.portfolio__cat-links a:hover,
+.portfolio__cat-links a:focus-visible {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
 /* ====== Dedicated project detail page (portfolio-estuary-air, etc.) ====== */
 
 .project-detail {
