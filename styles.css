@@ -275,6 +275,13 @@ em { font-style: italic; }
   border-bottom-color: var(--hairline);
 }
 
+/* Minimal variant: just the wordmark, no divider line even when scrolled.
+   Used on the portfolio homepage (portfolio.html) for an editorial look. */
+.nav--minimal,
+.nav--minimal.is-scrolled {
+  border-bottom-color: transparent;
+}
+
 .nav__inner {
   display: flex;
   align-items: baseline;
