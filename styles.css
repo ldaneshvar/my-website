@@ -2910,10 +2910,18 @@ em { font-style: italic; }
 .project-overlay {
   position: fixed;
   inset: 0;
+  /* Pin to the actual visible viewport (handles iOS Safari URL bar
+     collapse/expand) and let the modal scroll internally. */
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
   z-index: 1000;
   background: var(--bg);
   overflow-y: auto;
+  overflow-x: hidden;
   overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   opacity: 0;
   visibility: hidden;
   transition: opacity 400ms var(--ease-out-quart),
@@ -3015,11 +3023,18 @@ em { font-style: italic; }
   text-wrap: balance;
 }
 
+/* Hero image: never wider than the content column and never taller than
+   the viewport, so tall portraits like the honors logo aren't lost off
+   the bottom of the first screen. Aspect ratio preserved via object-fit. */
 .project-overlay__hero {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  width: auto;
+  max-height: 78vh;
+  max-height: 78dvh;
   height: auto;
-  margin-block-end: clamp(var(--space-10), 6vw, var(--space-16));
+  object-fit: contain;
+  margin: 0 auto clamp(var(--space-10), 6vw, var(--space-16));
 }
 
 .project-overlay__body {
