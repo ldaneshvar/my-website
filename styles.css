@@ -2988,6 +2988,13 @@ em { font-style: italic; }
   max-width: 480px;
 }
 
+/* Tall modifier for portrait covers that need more vertical room so
+   their pair width reads at a similar visual weight to landscape
+   project rows (e.g. the Extracurriculars SOM Honors logo). */
+.portfolio__spread-image--tall img {
+  max-height: 680px;
+}
+
 /* Placeholder for a project whose image / case study is not ready yet.
    Keeps the same layout rhythm as a filled project row. */
 .portfolio__spread-image--empty {
