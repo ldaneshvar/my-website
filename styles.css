@@ -1970,16 +1970,17 @@ em { font-style: italic; }
   padding-block: clamp(var(--space-8), 5vw, var(--space-12));
 }
 
-/* Decorative hairlines above the title and below the caption.
-   Identical width, thickness, color, and opacity on both sides. */
+/* Decorative hairlines above the title and below the caption have been
+   removed per request. The pseudo-elements stay in place as invisible
+   spacers (visibility: hidden) so the hero's internal vertical rhythm
+   between the title, caption, and intro paragraph is preserved exactly. */
 .portfolio__header::before,
 .portfolio__header::after {
   content: "";
   display: block;
   width: clamp(60px, 10vw, 120px);
   height: 1px;
-  background: var(--hairline);
-  opacity: 1;
+  visibility: hidden;
   margin-inline: auto;
 }
 
