@@ -2172,43 +2172,28 @@ em { font-style: italic; }
 }
 
 @media (min-width: 800px) {
-  /* On wider viewports every project row (except the --vertical video rows
-     on the main portfolio page) becomes a flex pair, centered as a unit
-     with a tight 40-60px gap. Images render at their intrinsic size up to
-     their caps, so the text sits right next to the image rather than
-     across a wide grid column. */
+  /* Two-column pair on desktop: image on the LEFT, text on the RIGHT,
+     vertically centered, with the whole pair centered on the page.
+     Both columns size to their content so the gap is exact, not stretched. */
   .portfolio__spread-row:not(.portfolio__spread-row--vertical) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+    grid-template-columns: auto auto;
     justify-content: center;
-    column-gap: clamp(40px, 5vw, 60px);
-    row-gap: var(--space-6);
-    grid-template-columns: initial;
+    align-items: center;
+    column-gap: clamp(40px, 4vw, 50px);
   }
-  .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) {
-    flex-direction: row-reverse;
-    grid-template-columns: initial;
+  /* Reset any previous --flip behavior — image stays on the left on
+     every project row (user asked for a non-alternating layout). */
+  .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-video,
+  .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-image {
+    order: 0;
   }
-  /* Clear the old grid-order from flipped rows — flex row-reverse handles
-     ordering now. */
-  .portfolio__spread-row--flip .portfolio__spread-video,
-  .portfolio__spread-row--flip .portfolio__spread-text { order: 0; }
-  .portfolio__spread-row--flip .portfolio__spread-text { text-align: right; }
-
-  /* Image wrapper shrink-wraps to the image's rendered width.
-     Text block takes its natural max-width (~44ch). */
-  .portfolio__spread-row:not(.portfolio__spread-row--vertical) .portfolio__spread-video,
-  .portfolio__spread-row:not(.portfolio__spread-row--vertical) .portfolio__spread-image {
-    flex: 0 0 auto;
-    width: fit-content;
-    max-width: 60%;
+  .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-text {
+    order: 0;
+    text-align: left;
+    margin-inline-start: 0;
   }
   .portfolio__spread-row:not(.portfolio__spread-row--vertical) .portfolio__spread-text {
-    flex: 0 0 auto;
-    width: fit-content;
-    max-width: min(100%, 44ch);
+    max-width: 44ch;
   }
 }
 
@@ -2289,11 +2274,6 @@ em { font-style: italic; }
   font-variation-settings: "opsz" 36, "SOFT" 50;
 }
 
-@media (min-width: 800px) {
-  .portfolio__spread-row--flip .portfolio__spread-desc {
-    margin-inline-start: auto;
-  }
-}
 
 /* Attachment link beneath a project description — e.g. "View the full
    brochure (PDF)". Reads as a quiet editorial link, not a button. */
@@ -2318,11 +2298,6 @@ em { font-style: italic; }
 .portfolio__spread-attachment a:focus-visible {
   color: var(--accent);
   text-decoration-color: currentColor;
-}
-@media (min-width: 800px) {
-  .portfolio__spread-row--flip .portfolio__spread-attachment {
-    margin-inline-start: auto;
-  }
 }
 
 /* Digital Projects landing — four equal squares in one horizontal row */
