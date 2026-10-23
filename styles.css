@@ -2268,6 +2268,36 @@ em { font-style: italic; }
   }
 }
 
+/* Attachment link beneath a project description — e.g. "View the full
+   brochure (PDF)". Reads as a quiet editorial link, not a button. */
+.portfolio__spread-attachment {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: var(--space-4) 0 0;
+  max-width: 44ch;
+  color: var(--ink-muted);
+}
+.portfolio__spread-attachment a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--hairline);
+  text-underline-offset: 0.35em;
+  text-decoration-thickness: 1px;
+  transition: color 220ms ease, text-decoration-color 220ms ease;
+}
+.portfolio__spread-attachment a:hover,
+.portfolio__spread-attachment a:focus-visible {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+@media (min-width: 800px) {
+  .portfolio__spread-row--flip .portfolio__spread-attachment {
+    margin-inline-start: auto;
+  }
+}
+
 /* Digital Projects landing — four equal squares in one horizontal row */
 .portfolio__cat-grid {
   display: grid;
