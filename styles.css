@@ -2571,7 +2571,7 @@ em { font-style: italic; }
 
 .project-detail {
   max-width: 68ch;
-  margin-block-end: clamp(var(--space-10), 7vw, var(--space-16));
+  margin-block-end: clamp(var(--space-6), 3.5vw, var(--space-10));
 }
 
 .project-detail__intro {
@@ -2653,33 +2653,114 @@ em { font-style: italic; }
   line-height: 1.5;
 }
 
-/* Slide deck — stacked, centered, crisp on dark. */
+/* Slide deck — stacked, centered, curated. Each slide reads as a small
+   portfolio tile at ~440px wide on desktop; clicking opens the lightbox
+   so visitors can see the slide at full resolution. */
 .project-deck {
   display: flex;
   flex-direction: column;
-  gap: clamp(var(--space-6), 4vw, var(--space-10));
+  gap: clamp(32px, 3.5vw, 40px);
   padding-inline: clamp(var(--space-3), 3vw, var(--space-8));
   margin: 0 auto clamp(var(--space-10), 7vw, var(--space-16));
-  max-width: 1200px;
+  max-width: 440px;
+  width: 100%;
+  align-items: center;
 }
 .project-deck__slide {
   margin: 0;
   display: block;
+  width: 100%;
 }
-.project-deck__slide img {
+.project-deck__slide-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: zoom-in;
+  text-align: inherit;
+  overflow: hidden;
+}
+.project-deck__slide-trigger img {
   display: block;
   width: 100%;
   height: auto;
   border: 1px solid var(--hairline);
+  transition: opacity 300ms var(--ease-out-quart);
+}
+.project-deck__slide-trigger:hover img,
+.project-deck__slide-trigger:focus-visible img {
+  opacity: 0.88;
+}
+.project-deck__slide-trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 .project-deck__slide figcaption {
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--ink-muted);
   text-align: center;
   margin-top: var(--space-3);
+}
+
+/* Lightbox overlay for enlarging a slide. Hidden until a slide is
+   clicked; shows the full-resolution image centered against a dim
+   backdrop. Click the backdrop, press Esc, or click the close button
+   to dismiss. */
+.project-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(var(--space-4), 4vw, var(--space-10));
+  background: rgba(10, 8, 6, 0.92);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms var(--ease-out-quart);
+}
+.project-lightbox[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+.project-lightbox__image {
+  display: block;
+  max-width: min(1400px, 95vw);
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.project-lightbox__close {
+  position: absolute;
+  top: clamp(var(--space-4), 3vw, var(--space-6));
+  right: clamp(var(--space-4), 3vw, var(--space-6));
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  color: #F5EFDF;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 220ms ease, border-color 220ms ease;
+}
+.project-lightbox__close:hover,
+.project-lightbox__close:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.6);
+  outline: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-lightbox { transition: none; }
 }
 
 /* Category view — opens when a tile is clicked */

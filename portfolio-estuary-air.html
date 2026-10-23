@@ -79,25 +79,40 @@
 
     <div class="project-deck">
       <figure class="project-deck__slide reveal">
-        <img src="/project-estuary-air-slide-1.jpg" alt="Slide 1: Estuary Artist-in-Residence title card" loading="lazy" width="1600" height="1601">
+        <button type="button" class="project-deck__slide-trigger" data-slide-src="/project-estuary-air-slide-1.jpg" data-slide-alt="Slide 1 of 5: Estuary Artist-in-Residence title card" aria-label="Enlarge slide 1 of 5">
+          <img src="/project-estuary-air-slide-1.jpg" alt="Slide 1: Estuary Artist-in-Residence title card" loading="lazy" width="1600" height="1601">
+        </button>
         <figcaption>Slide 1 of 5</figcaption>
       </figure>
       <figure class="project-deck__slide reveal">
-        <img src="/project-estuary-air-slide-2.jpg" alt="Slide 2" loading="lazy" width="1600" height="1601">
+        <button type="button" class="project-deck__slide-trigger" data-slide-src="/project-estuary-air-slide-2.jpg" data-slide-alt="Slide 2 of 5" aria-label="Enlarge slide 2 of 5">
+          <img src="/project-estuary-air-slide-2.jpg" alt="Slide 2" loading="lazy" width="1600" height="1601">
+        </button>
         <figcaption>Slide 2 of 5</figcaption>
       </figure>
       <figure class="project-deck__slide reveal">
-        <img src="/project-estuary-air-slide-3.jpg" alt="Slide 3" loading="lazy" width="1600" height="1601">
+        <button type="button" class="project-deck__slide-trigger" data-slide-src="/project-estuary-air-slide-3.jpg" data-slide-alt="Slide 3 of 5" aria-label="Enlarge slide 3 of 5">
+          <img src="/project-estuary-air-slide-3.jpg" alt="Slide 3" loading="lazy" width="1600" height="1601">
+        </button>
         <figcaption>Slide 3 of 5</figcaption>
       </figure>
       <figure class="project-deck__slide reveal">
-        <img src="/project-estuary-air-slide-4.jpg" alt="Slide 4" loading="lazy" width="1600" height="1601">
+        <button type="button" class="project-deck__slide-trigger" data-slide-src="/project-estuary-air-slide-4.jpg" data-slide-alt="Slide 4 of 5" aria-label="Enlarge slide 4 of 5">
+          <img src="/project-estuary-air-slide-4.jpg" alt="Slide 4" loading="lazy" width="1600" height="1601">
+        </button>
         <figcaption>Slide 4 of 5</figcaption>
       </figure>
       <figure class="project-deck__slide reveal">
-        <img src="/project-estuary-air-slide-5.jpg" alt="Slide 5" loading="lazy" width="1600" height="1601">
+        <button type="button" class="project-deck__slide-trigger" data-slide-src="/project-estuary-air-slide-5.jpg" data-slide-alt="Slide 5 of 5" aria-label="Enlarge slide 5 of 5">
+          <img src="/project-estuary-air-slide-5.jpg" alt="Slide 5" loading="lazy" width="1600" height="1601">
+        </button>
         <figcaption>Slide 5 of 5</figcaption>
       </figure>
+    </div>
+
+    <div class="project-lightbox" id="slide-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Enlarged slide" tabindex="-1">
+      <button type="button" class="project-lightbox__close" aria-label="Close enlarged slide">&times;</button>
+      <img class="project-lightbox__image" alt="">
     </div>
 
     <div class="container">
@@ -130,6 +145,44 @@
   </div>
 </footer>
 
+<script>
+  (function () {
+    const lightbox = document.getElementById('slide-lightbox');
+    if (!lightbox) return;
+    const img = lightbox.querySelector('.project-lightbox__image');
+    const closeBtn = lightbox.querySelector('.project-lightbox__close');
+    const triggers = document.querySelectorAll('.project-deck__slide-trigger');
+    let lastFocus = null;
+
+    const open = (src, alt) => {
+      lastFocus = document.activeElement;
+      img.src = src;
+      img.alt = alt || '';
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => closeBtn.focus());
+    };
+    const close = () => {
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      img.src = '';
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    };
+
+    triggers.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        open(btn.dataset.slideSrc, btn.dataset.slideAlt);
+      });
+    });
+    closeBtn.addEventListener('click', close);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.getAttribute('aria-hidden') === 'false') close();
+    });
+  })();
+</script>
 <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
 <script src="/script.js"></script>
 </body>
