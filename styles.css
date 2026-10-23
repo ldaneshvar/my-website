@@ -3036,8 +3036,8 @@ em { font-style: italic; }
 .portfolio__closer-email {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
-  color: oklch(0.86 0.015 70);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  color: #E8E0DA;
   margin: 0;
   max-width: none;
 }
@@ -3056,19 +3056,19 @@ em { font-style: italic; }
   text-decoration-color: currentColor;
 }
 
-/* Copyright line tucked at the bottom of the botanical banner, in
-   place of the old black footer strip. */
+/* Copyright line tucked into the bottom-left corner of the botanical
+   banner. Smaller and more muted than the email, so it reads as a
+   subtle editorial credit rather than a prominent element. */
 .portfolio__closer-credit {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: clamp(var(--space-5), 5vw, var(--space-10));
   bottom: clamp(var(--space-4), 2.4vw, var(--space-6));
   margin: 0;
-  text-align: center;
+  text-align: left;
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 0.64rem;
   letter-spacing: 0.08em;
-  color: rgba(255, 245, 232, 0.72);
+  color: rgba(220, 210, 198, 0.58);
   z-index: 1;
 }
 
