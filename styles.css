@@ -2843,6 +2843,20 @@ em { font-style: italic; }
   transition: opacity 350ms var(--ease-out-quart), transform 500ms var(--ease-out-quart);
 }
 
+/* On wider viewports where image + text sit side by side, pin the image
+   to the inner edge of its grid cell so it visually pairs with the text
+   instead of floating centered with empty space between them. This only
+   affects images smaller than the column (e.g. near-square covers like
+   the Estuary slide); landscape covers already fill the column edge-to-edge. */
+@media (min-width: 800px) {
+  .portfolio__spread-row:not(.portfolio__spread-row--flip) .portfolio__spread-image img {
+    margin-inline: auto 0;
+  }
+  .portfolio__spread-row--flip .portfolio__spread-image img {
+    margin-inline: 0 auto;
+  }
+}
+
 .portfolio__spread-image:hover img,
 .portfolio__spread-image:focus-visible img {
   opacity: 0.9;
