@@ -63,9 +63,9 @@
     <div class="portfolio__spread">
 
       <div class="portfolio__spread-row">
-        <button class="portfolio__spread-video portfolio__spread-image" type="button" data-project="weeknd-marketing-plan" aria-label="Open Music Marketing Plan: The Weeknd project">
+        <a class="portfolio__spread-video portfolio__spread-image" href="/project-weeknd-marketing-plan.pdf" target="_blank" rel="noopener" aria-label="Open Music Marketing Plan: The Weeknd PDF in a new tab">
           <img src="/project-weeknd-marketing-plan.jpg" alt="Music Marketing Plan: The Weeknd cover" loading="lazy" width="1600" height="899">
-        </button>
+        </a>
         <div class="portfolio__spread-text">
           <p class="portfolio__spread-type">Entertainment marketing &middot; May 2026</p>
           <h3>Music Marketing Plan: The Weeknd</h3>
@@ -77,9 +77,9 @@
       </div>
 
       <div class="portfolio__spread-row portfolio__spread-row--flip">
-        <button class="portfolio__spread-video portfolio__spread-image" type="button" data-project="gopro-ad-redesign" aria-label="Open GoPro HERO13 ad redesign project">
+        <a class="portfolio__spread-video portfolio__spread-image" href="/project-gopro-ad-redesign.pdf" target="_blank" rel="noopener" aria-label="Open GoPro HERO13 Ad Redesign PDF in a new tab">
           <img src="/project-gopro-ad-redesign.jpg" alt="GoPro HERO13 ad redesign cover: Don't Miss the Moment" loading="lazy" width="1600" height="899">
-        </button>
+        </a>
         <div class="portfolio__spread-text">
           <p class="portfolio__spread-type">Digital marketing &middot; May 2026</p>
           <h3>GoPro HERO13 Ad Redesign</h3>
@@ -91,9 +91,9 @@
       </div>
 
       <div class="portfolio__spread-row">
-        <button class="portfolio__spread-video portfolio__spread-image" type="button" data-project="lower-fillmore" aria-label="Open Lower Fillmore research project">
+        <div class="portfolio__spread-video portfolio__spread-image">
           <img src="/project-lighting-and-safety-lower-fillmore.jpg" alt="Lighting and Safety, Lower Fillmore research report cover" loading="lazy" width="1600" height="1236">
-        </button>
+        </div>
         <div class="portfolio__spread-text">
           <p class="portfolio__spread-type">December 2025 &middot; Honors Capstone Project</p>
           <h3>Lighting &amp; Safety, Lower Fillmore</h3>
@@ -113,65 +113,6 @@
     <p class="footer__set" data-sf-time>San Francisco</p>
   </div>
 </footer>
-
-<!-- Project overlay -->
-<div class="project-overlay" id="project-overlay" data-lenis-prevent aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="overlay-title" tabindex="-1">
-  <button class="project-overlay__close" type="button" aria-label="Close project">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <div class="project-overlay__content">
-    <button class="project-overlay__back" type="button" id="overlay-back">
-      <span aria-hidden="true">&larr;</span> Back to Academic Work
-    </button>
-    <p class="project-overlay__meta" id="overlay-meta"></p>
-    <h2 class="project-overlay__title" id="overlay-title"></h2>
-    <img class="project-overlay__hero" id="overlay-hero" src="" alt="">
-    <div class="project-overlay__body">
-      <p class="project-overlay__description" id="overlay-desc"></p>
-      <dl class="project-overlay__details">
-        <div><dt>Role</dt><dd id="overlay-role"></dd></div>
-        <div><dt>Tools</dt><dd id="overlay-tools"></dd></div>
-      </dl>
-    </div>
-    <div class="project-overlay__gallery" id="overlay-gallery" hidden></div>
-  </div>
-</div>
-
-<script>
-  window.PROJECT_DATA = {
-    'lower-fillmore': {
-      title: 'Lighting & Safety, Lower Fillmore',
-      meta: 'December 2025 · Honors Capstone Project',
-      hero: '/project-lighting-and-safety-lower-fillmore.jpg',
-      heroAlt: 'Lighting and Safety, Lower Fillmore research report cover',
-      description: "Conducted a research-driven community project examining the relationship between street lighting, public safety, and neighborhood activity in San Francisco's Lower Fillmore. Combined community observations, stakeholder research, and strategic analysis to propose lighting improvements that support safer, more welcoming public spaces.",
-      role: 'Research & design',
-      tools: 'Adobe InDesign',
-      gallery: []
-    },
-    'gopro-ad-redesign': {
-      title: 'GoPro HERO13 Ad Redesign',
-      meta: 'Digital marketing · May 2026',
-      hero: '/project-gopro-ad-redesign.jpg',
-      heroAlt: "GoPro HERO13 ad redesign cover: Don't Miss the Moment",
-      description: "Redesigned a digital advertisement for the GoPro HERO13, focusing on visual hierarchy, typography, and brand messaging. Used adventure-focused imagery and a stronger headline to emphasize the camera's ability to capture memorable experiences while maintaining GoPro's recognizable brand identity.",
-      role: 'Design & art direction',
-      tools: 'Canva',
-      gallery: []
-    },
-    'weeknd-marketing-plan': {
-      title: 'Music Marketing Plan: The Weeknd',
-      meta: 'Entertainment marketing · May 2026',
-      hero: '/project-weeknd-marketing-plan.jpg',
-      heroAlt: 'Music Marketing Plan: The Weeknd cover',
-      description: 'Developed a comprehensive marketing plan for The Weeknd as part of an Entertainment Marketing course. Analyzed his brand identity, target audience, and market positioning to develop campaign concepts that strengthen fan engagement and support long-term brand growth.',
-      role: 'Strategy & design',
-      tools: 'Canva',
-      gallery: []
-    }
-  };
-</script>
-<script src="/portfolio-overlay.js"></script>
 
 <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
 <script src="/script.js"></script>
