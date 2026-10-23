@@ -2636,6 +2636,50 @@ em { font-style: italic; }
   margin-block-end: 0;
 }
 
+/* ====== Personal Projects — background decor ======================
+   A faint oversized line-art camera motif fixed to the viewport,
+   cropped off the bottom-right corner. Deep crimson at very low
+   opacity. Never interactive, always behind content. Scoped by the
+   .personal-decor class which only exists on portfolio-personal.html. */
+.personal-decor {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.personal-decor svg {
+  position: absolute;
+  bottom: -14vh;
+  right: -16vw;
+  width: 92vw;
+  max-width: 1500px;
+  height: auto;
+  color: rgba(170, 22, 32, 0.09);
+  transform: rotate(-4deg);
+  transform-origin: center;
+}
+/* On mobile, scale it up a bit relative to the smaller viewport so the
+   fragment that's visible still reads as an abstract camera shape. */
+@media (max-width: 700px) {
+  .personal-decor svg {
+    width: 140vw;
+    bottom: -8vh;
+    right: -30vw;
+    color: rgba(170, 22, 32, 0.08);
+  }
+}
+/* Keep page content layered above the decor. */
+.page-portfolio main,
+.page-portfolio .nav,
+.page-portfolio .footer {
+  position: relative;
+  z-index: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .personal-decor svg { transform: none; }
+}
+
 /* ====== Dedicated project detail page (portfolio-estuary-air, etc.) ====== */
 
 .project-detail {
