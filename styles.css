@@ -2180,14 +2180,6 @@ em { font-style: italic; }
 
 .portfolio__spread-video {
   position: relative;
-  outline: 1px solid transparent;
-  outline-offset: 0;
-  transition: outline-color 300ms var(--ease-out-quart), outline-offset 300ms var(--ease-out-quart);
-}
-
-.portfolio__spread-video:hover {
-  outline-color: oklch(0.22 0.12 18);
-  outline-offset: 2px;
 }
 
 .portfolio__spread-video video {
