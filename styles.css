@@ -1950,6 +1950,19 @@ em { font-style: italic; }
 }
 
 /* Hero header */
+/* Portfolio homepage hero: fills the initial viewport so the Digital
+   Projects section lives below the fold on first load. The hero's own
+   content (name + caption + intro) is centered vertically; the top
+   nav header has been removed, so this container owns the full
+   viewport height on its own. */
+.portfolio__hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .portfolio__header {
   position: relative;
   margin-block: clamp(var(--space-12), 10vw, var(--space-24)) clamp(var(--space-8), 5.8vw, var(--space-12));
