@@ -2172,17 +2172,20 @@ em { font-style: italic; }
 }
 
 @media (min-width: 800px) {
-  /* Two-column pair on desktop: image on the LEFT, text on the RIGHT,
-     vertically centered, with the whole pair centered on the page.
-     Both columns size to their content so the gap is exact, not stretched. */
+  /* Two-column pair on desktop: vertically centered, pair centered on
+     the page, columns sized to content so the gap is exact. */
   .portfolio__spread-row:not(.portfolio__spread-row--vertical) {
     grid-template-columns: auto auto;
     justify-content: center;
     align-items: center;
     column-gap: clamp(40px, 4vw, 50px);
   }
-  /* Reset any previous --flip behavior — image stays on the left on
-     every project row (user asked for a non-alternating layout). */
+  .portfolio__spread-row:not(.portfolio__spread-row--vertical) .portfolio__spread-text {
+    max-width: 44ch;
+  }
+  /* Subpages (project cards under /portfolio-academic, /portfolio-professional,
+     /portfolio-community, /portfolio-personal): image stays on the LEFT
+     on every row, no alternation. */
   .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-video,
   .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-image {
     order: 0;
@@ -2192,8 +2195,24 @@ em { font-style: italic; }
     text-align: left;
     margin-inline-start: 0;
   }
-  .portfolio__spread-row:not(.portfolio__spread-row--vertical) .portfolio__spread-text {
-    max-width: 44ch;
+  /* Main portfolio page's Film & Direction section (rows live inside
+     .portfolio__section): restore the alternating zigzag — flip rows
+     put the video on the RIGHT and text on the LEFT. Higher specificity
+     than the subpage reset above. */
+  .portfolio__section .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-video {
+    order: 2;
+  }
+  .portfolio__section .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-text {
+    order: 1;
+    text-align: right;
+  }
+  /* Vertical video row (row 4): also flipped, so video on the RIGHT,
+     text on the LEFT. The --vertical grid still handles sizing. */
+  .portfolio__section .portfolio__spread-row--flip.portfolio__spread-row--vertical .portfolio__spread-text {
+    order: 1;
+  }
+  .portfolio__section .portfolio__spread-row--flip.portfolio__spread-row--vertical .portfolio__spread-video {
+    order: 2;
   }
 }
 
