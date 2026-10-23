@@ -2172,7 +2172,7 @@ em { font-style: italic; }
 }
 
 @media (min-width: 800px) {
-  .portfolio__spread-row { grid-template-columns: 2fr 1fr; }
+  .portfolio__spread-row { grid-template-columns: 2fr 1fr; column-gap: clamp(var(--space-6), 4vw, var(--space-10)); }
   .portfolio__spread-row--flip { grid-template-columns: 1fr 2fr; }
   .portfolio__spread-row--flip .portfolio__spread-video { order: 2; }
   .portfolio__spread-row--flip .portfolio__spread-text { order: 1; text-align: right; }
@@ -2253,14 +2253,14 @@ em { font-style: italic; }
 
 .portfolio__spread-desc {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-weight: 350;
-  font-size: var(--step-0);
-  line-height: 1.65;
-  color: var(--ink-muted);
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+  line-height: 1.6;
+  color: #CFC6BC;
   margin: var(--space-4) 0 0;
-  max-width: 44ch;
-  font-variation-settings: "opsz" 24, "SOFT" 100;
+  max-width: 46ch;
+  font-variation-settings: "opsz" 36, "SOFT" 50;
 }
 
 @media (min-width: 800px) {
@@ -2842,6 +2842,12 @@ em { font-style: italic; }
   display: block;
   width: 100%;
   height: auto;
+  /* Cap the display height so landscape covers (16:9) and 4:3 covers
+     read at similar visual weight across the alternating rows, without
+     cropping or distorting the native artwork. */
+  max-height: 460px;
+  object-fit: contain;
+  margin: 0 auto;
   transition: opacity 350ms var(--ease-out-quart), transform 500ms var(--ease-out-quart);
 }
 
