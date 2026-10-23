@@ -2183,35 +2183,24 @@ em { font-style: italic; }
   .portfolio__spread-row:not(.portfolio__spread-row--vertical) .portfolio__spread-text {
     max-width: 44ch;
   }
-  /* Subpages (project cards under /portfolio-academic, /portfolio-professional,
-     /portfolio-community, /portfolio-personal): image stays on the LEFT
-     on every row, no alternation. */
+  /* Alternating zigzag: every row with the --flip class swaps columns
+     via grid order. Applies to all non-vertical rows on both the main
+     portfolio page's Film & Direction section AND the Digital Projects
+     subpages (academic / professional / extracurriculars / personal). */
   .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-video,
   .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-image {
-    order: 0;
-  }
-  .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-text {
-    order: 0;
-    text-align: left;
-    margin-inline-start: 0;
-  }
-  /* Main portfolio page's Film & Direction section (rows live inside
-     .portfolio__section): restore the alternating zigzag — flip rows
-     put the video on the RIGHT and text on the LEFT. Higher specificity
-     than the subpage reset above. */
-  .portfolio__section .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-video {
     order: 2;
   }
-  .portfolio__section .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-text {
+  .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-text {
     order: 1;
     text-align: right;
   }
-  /* Vertical video row (row 4): also flipped, so video on the RIGHT,
-     text on the LEFT. The --vertical grid still handles sizing. */
-  .portfolio__section .portfolio__spread-row--flip.portfolio__spread-row--vertical .portfolio__spread-text {
+  /* Vertical video row (Film & Direction row 4): also flipped, so
+     video on the RIGHT, text on the LEFT. */
+  .portfolio__spread-row--flip.portfolio__spread-row--vertical .portfolio__spread-text {
     order: 1;
   }
-  .portfolio__section .portfolio__spread-row--flip.portfolio__spread-row--vertical .portfolio__spread-video {
+  .portfolio__spread-row--flip.portfolio__spread-row--vertical .portfolio__spread-video {
     order: 2;
   }
 }
