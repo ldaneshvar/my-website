@@ -2161,6 +2161,7 @@ em { font-style: italic; }
   padding-inline: clamp(var(--space-3), 3vw, var(--space-8));
   max-width: 1500px;
   margin-inline: auto;
+  margin-block-end: clamp(var(--space-10), 7vw, var(--space-16));
 }
 
 .portfolio__spread-row {
@@ -2666,6 +2667,20 @@ em { font-style: italic; }
 }
 .portfolio__spread-image--portrait img {
   max-width: 320px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+/* Compact modifier for landscape covers that otherwise fill the column
+   edge-to-edge; useful when a project sits last in a spread so the row
+   doesn't crowd the contact section below. */
+.portfolio__spread-image--compact {
+  text-align: center;
+}
+.portfolio__spread-image--compact img {
+  max-width: 480px;
   width: 100%;
   height: auto;
   margin: 0 auto;
