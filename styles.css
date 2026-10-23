@@ -2629,6 +2629,29 @@ em { font-style: italic; }
   outline-offset: 4px;
 }
 
+/* Placeholder for a project whose image / case study is not ready yet.
+   Keeps the same layout rhythm as a filled project row. */
+.portfolio__spread-image--empty {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-deep);
+  border: 1px solid var(--hairline);
+  cursor: default;
+}
+.portfolio__spread-image--empty span {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.62rem;
+  color: var(--ink-muted);
+}
+.portfolio__spread-image--empty:hover span,
+.portfolio__spread-image--empty:focus-visible span {
+  color: var(--ink);
+}
+
 /* Project overlay (opens when a Digital Project is clicked) */
 .project-overlay {
   position: fixed;
