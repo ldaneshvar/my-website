@@ -2012,7 +2012,7 @@ em { font-style: italic; }
   font-size: clamp(3.5rem, 12vw, 10rem);
   letter-spacing: -0.045em;
   line-height: 0.88;
-  margin: 0 0 36px;
+  margin: 0 0 25px;
   color: var(--ink);
   font-variation-settings: "opsz" 144, "SOFT" 25, "WONK" 0;
   text-wrap: balance;
@@ -2037,19 +2037,19 @@ em { font-style: italic; }
 }
 
 
-/* Caption now sits ABOVE the name as a small crimson eyebrow label. */
+/* Caption: small crimson serif subtitle sitting directly beneath the
+   name. Original mixed case + letter-spacing from the display font —
+   no uppercase transform, no extra tracking. */
 .portfolio__caption {
   font-family: var(--font-display);
   font-style: normal;
-  font-weight: 500;
-  font-size: clamp(0.8rem, 1vw, 0.95rem);
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
+  font-weight: 350;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
   color: var(--accent);
   text-align: center;
-  margin: 0 0 26px;
+  margin: 0 0 40px;
   max-width: none;
-  font-variation-settings: "opsz" 24, "SOFT" 60, "WONK" 0;
+  font-variation-settings: "opsz" 36, "SOFT" 80, "WONK" 0;
 }
 
 .portfolio__meta {
