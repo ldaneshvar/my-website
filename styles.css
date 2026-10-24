@@ -1994,14 +1994,14 @@ em { font-style: italic; }
   font-variation-settings: "opsz" 144, "SOFT" 25, "WONK" 0;
 }
 .hero-decor-word--marketing {
-  top: 9%;
-  left: 4%;
-  font-size: clamp(4rem, 13vw, 13rem);
+  top: 10%;
+  left: 7%;
+  font-size: clamp(3.5rem, 12vw, 12rem);
 }
 .hero-decor-word--design {
-  bottom: 6%;
-  right: -8%;
-  font-size: clamp(4rem, 15vw, 15rem);
+  bottom: 10%;
+  right: 7%;
+  font-size: clamp(3.5rem, 12vw, 12rem);
 }
 /* Keep hero text above the decor layer. (Scroll cue uses position:
    absolute from its own rule so it anchors to the hero bottom —
