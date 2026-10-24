@@ -1990,16 +1990,16 @@ em { font-style: italic; }
   white-space: nowrap;
   user-select: none;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(205, 30, 45, 0.42);
+  -webkit-text-stroke: 1px rgba(205, 30, 45, 0.3);
   font-variation-settings: "opsz" 144, "SOFT" 25, "WONK" 0;
 }
 .hero-decor-word--marketing {
-  top: 10%;
+  top: 28%;
   left: 7%;
   font-size: clamp(3.5rem, 12vw, 12rem);
 }
 .hero-decor-word--design {
-  bottom: 10%;
+  bottom: 25%;
   right: 7%;
   font-size: clamp(3.5rem, 12vw, 12rem);
 }
