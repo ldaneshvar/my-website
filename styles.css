@@ -1964,6 +1964,34 @@ em { font-style: italic; }
   justify-content: center;
 }
 
+/* Faint abstract background graphic for the homepage hero: a quiet
+   dark-crimson line layer that nods to marketing + design (grid rules,
+   editorial crosshairs, concentric circles, a flowing curve, a path
+   arrow, column rules) without being literal. Pinned behind the text,
+   cropped off-screen on both sides via preserveAspectRatio slice. */
+.portfolio__hero-decor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  color: rgba(185, 25, 35, 0.1);
+}
+.portfolio__hero-decor svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Keep hero text and scroll cue above the decor layer. */
+.portfolio__hero > .portfolio__header,
+.portfolio__hero > .portfolio__caption,
+.portfolio__hero > .portfolio__intro,
+.portfolio__hero > .portfolio__scroll-cue {
+  position: relative;
+  z-index: 1;
+}
+
 /* Subtle scroll cue at the bottom of the hero. Thin crimson chevron
    that quietly floats; click smooth-scrolls to Digital Projects (the
    existing anchor-link handler in script.js routes it through Lenis). */

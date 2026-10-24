@@ -32,6 +32,65 @@
   <section class="portfolio">
     <div class="container portfolio__hero">
 
+      <div class="portfolio__hero-decor" aria-hidden="true">
+        <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Column rules along both outer edges (newspaper gutter feel) -->
+          <line x1="36" y1="0" x2="36" y2="900"/>
+          <line x1="96" y1="0" x2="96" y2="900"/>
+          <line x1="1504" y1="0" x2="1504" y2="900"/>
+          <line x1="1564" y1="0" x2="1564" y2="900"/>
+
+          <!-- Thin top rule -->
+          <line x1="0" y1="60" x2="1600" y2="60" stroke-width="0.6"/>
+
+          <!-- Oversized concentric circle cropped off bottom-left (lens / aperture suggestion) -->
+          <circle cx="-40" cy="820" r="340"/>
+          <circle cx="-40" cy="820" r="260"/>
+          <circle cx="-40" cy="820" r="180"/>
+
+          <!-- Smaller concentric circle cropped off top-right -->
+          <circle cx="1620" cy="-20" r="280"/>
+          <circle cx="1620" cy="-20" r="200"/>
+          <circle cx="1620" cy="-20" r="120"/>
+
+          <!-- Faint 5x5 editorial grid in the bottom-right -->
+          <g stroke-width="0.5">
+            <line x1="1080" y1="540" x2="1480" y2="540"/>
+            <line x1="1080" y1="600" x2="1480" y2="600"/>
+            <line x1="1080" y1="660" x2="1480" y2="660"/>
+            <line x1="1080" y1="720" x2="1480" y2="720"/>
+            <line x1="1080" y1="780" x2="1480" y2="780"/>
+            <line x1="1080" y1="540" x2="1080" y2="840"/>
+            <line x1="1180" y1="540" x2="1180" y2="840"/>
+            <line x1="1280" y1="540" x2="1280" y2="840"/>
+            <line x1="1380" y1="540" x2="1380" y2="840"/>
+            <line x1="1480" y1="540" x2="1480" y2="840"/>
+          </g>
+
+          <!-- Low flowing curve across the lower portion -->
+          <path d="M 60 760 C 320 680, 620 640, 920 700 S 1420 760, 1550 680"/>
+
+          <!-- Short diagonal path with arrowhead (upper right) -->
+          <path d="M 1420 150 L 1180 320"/>
+          <path d="M 1180 320 L 1210 318"/>
+          <path d="M 1180 320 L 1182 290"/>
+
+          <!-- Alignment crosshairs scattered in the margins -->
+          <g stroke-width="0.6">
+            <path d="M 160 160 L 160 196 M 142 178 L 178 178"/>
+            <path d="M 760 80 L 760 116 M 742 98 L 778 98"/>
+            <path d="M 1340 480 L 1340 516 M 1322 498 L 1358 498"/>
+            <path d="M 440 840 L 440 876 M 422 858 L 458 858"/>
+          </g>
+
+          <!-- A few dashed guide lines (technical feel) -->
+          <g stroke-dasharray="4 7" stroke-width="0.55">
+            <line x1="260" y1="280" x2="860" y2="280"/>
+            <line x1="900" y1="840" x2="1340" y2="840"/>
+          </g>
+        </svg>
+      </div>
+
       <header class="portfolio__header reveal">
         <h1 class="portfolio__title">Lidia Daneshvar</h1>
       </header>
