@@ -2037,16 +2037,19 @@ em { font-style: italic; }
 }
 
 
+/* Caption now sits ABOVE the name as a small crimson eyebrow label. */
 .portfolio__caption {
   font-family: var(--font-display);
   font-style: normal;
-  font-weight: 350;
-  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  font-weight: 500;
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
   color: var(--accent);
   text-align: center;
-  margin: 0;
+  margin: 0 0 26px;
   max-width: none;
-  font-variation-settings: "opsz" 48, "SOFT" 100, "WONK" 0;
+  font-variation-settings: "opsz" 24, "SOFT" 60, "WONK" 0;
 }
 
 .portfolio__meta {
