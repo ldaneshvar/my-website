@@ -34,24 +34,29 @@
 
       <div class="portfolio__hero-decor" aria-hidden="true">
         <svg class="hero-decor-art" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <!-- Three small, irregular editorial collage fragments. Angular
-               silhouettes with a mix of solid fill and negative-space
-               outline. All kept near the cursive words. -->
+          <!-- Expressive calligraphic flourishes that read as swashes
+               extending from the cursive words — tapered lens-shapes with
+               narrow ends and wider middles, like brush strokes. -->
 
-          <!-- 1. Angular solid fragment, upper-left near the start of 'Marketing'. -->
-          <path d="M 2 11 L 13 6 L 15 15 L 8 21 L 2 18 Z"
-                fill="currentColor" opacity="0.7"/>
+          <!-- 1. Long sweeping swash just under 'Marketing', like a flourish
+               continuing from the word's baseline. -->
+          <path d="M 3 28
+                   C 18 22, 36 24, 54 22
+                   C 36 26, 18 29, 3 29 Z"
+                fill="currentColor" opacity="0.55"/>
 
-          <!-- 2. Negative-space fragment: thin outline silhouette tucked
-               under the tail of 'Marketing' (angular, asymmetric). -->
-          <path d="M 32 25 L 46 20 L 50 28 L 36 30 Z"
-                fill="none" stroke="currentColor" stroke-width="1"
-                vector-effect="non-scaling-stroke" opacity="0.5"/>
-
-          <!-- 3. Asymmetric sculptural blade solid shape, bleeding off
-               the right edge next to '& Design'. -->
-          <path d="M 90 68 L 100 66 L 100 86 L 93 90 L 87 82 Z"
+          <!-- 2. Elegant tail flourish curling off the end of '& Design'. -->
+          <path d="M 92 83
+                   C 97 81, 100 84, 100 89
+                   C 100 87, 97 85, 92 86 Z"
                 fill="currentColor" opacity="0.6"/>
+
+          <!-- 3. Narrow crescent swash under '& Design' — a quiet
+               accent balancing the baseline. -->
+          <path d="M 54 92
+                   Q 68 88, 83 91
+                   Q 68 92, 54 93 Z"
+                fill="currentColor" opacity="0.42"/>
         </svg>
         <span class="hero-decor-word hero-decor-word--marketing">Marketing</span>
         <span class="hero-decor-word hero-decor-word--design">&amp; Design</span>
