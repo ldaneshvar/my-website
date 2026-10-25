@@ -33,18 +33,12 @@
     <div class="container portfolio__hero">
 
       <div class="portfolio__hero-decor" aria-hidden="true">
-        <!-- Three vintage-engraving 4-point starbursts. Each is its own
-             small SVG with its own aspect-preserving viewBox so the diamond
-             silhouette stays symmetric. Thin crimson outline, no fill. -->
-        <svg class="hero-star hero-star--1" viewBox="-1 -1 2 2" aria-hidden="true">
-          <path d="M 0 -1 L 0.11 -0.11 L 1 0 L 0.11 0.11 L 0 1 L -0.11 0.11 L -1 0 L -0.11 -0.11 Z"/>
-        </svg>
-        <svg class="hero-star hero-star--2" viewBox="-1 -1 2 2" aria-hidden="true">
-          <path d="M 0 -1 L 0.11 -0.11 L 1 0 L 0.11 0.11 L 0 1 L -0.11 0.11 L -1 0 L -0.11 -0.11 Z"/>
-        </svg>
-        <svg class="hero-star hero-star--3" viewBox="-1 -1 2 2" aria-hidden="true">
-          <path d="M 0 -1 L 0.11 -0.11 L 1 0 L 0.11 0.11 L 0 1 L -0.11 0.11 L -1 0 L -0.11 -0.11 Z"/>
-        </svg>
+        <!-- Two subtle editorial halftone fields: tiny crimson dots that
+             fade toward the edges via a radial mask. One sits around the
+             lower-left of 'Marketing', one around the upper-right of
+             '& Design'. -->
+        <div class="hero-halftone hero-halftone--marketing"></div>
+        <div class="hero-halftone hero-halftone--design"></div>
         <span class="hero-decor-word hero-decor-word--marketing">Marketing</span>
         <span class="hero-decor-word hero-decor-word--design">&amp; Design</span>
       </div>
