@@ -1981,17 +1981,18 @@ em { font-style: italic; }
    independently so 'Marketing' always fits inside the viewport, while
    '& Design' is pushed off the right edge for an asymmetric layered
    editorial feel. */
+/* Oversized gestural background typography. An expressive calligraphic
+   crimson layer behind the hero — not a headline. Soft fill (no outline)
+   at low opacity so the sweeping Allura script strokes read as texture. */
 .hero-decor-word {
   position: absolute;
-  font-family: var(--font-display);
-  font-weight: 300;
-  letter-spacing: -0.04em;
+  font-family: "Allura", "Dancing Script", cursive;
+  font-weight: 400;
+  letter-spacing: 0;
   line-height: 1;
   white-space: nowrap;
   user-select: none;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(205, 30, 45, 0.36);
-  font-variation-settings: "opsz" 144, "SOFT" 25, "WONK" 0;
+  color: rgba(195, 25, 40, 0.18);
 }
 
 /* Editorial corner markers — small letter-spaced labels in warm gray,
@@ -2011,14 +2012,18 @@ em { font-style: italic; }
 .hero-marker--top    { top: clamp(24px, 3vw, 40px); left: clamp(24px, 4vw, 56px); }
 .hero-marker--bottom { bottom: clamp(24px, 3vw, 40px); right: clamp(24px, 4vw, 56px); }
 .hero-decor-word--marketing {
-  top: 28%;
-  left: 7%;
-  font-size: clamp(3.5rem, 12vw, 12rem);
+  top: 8%;
+  left: -2%;
+  font-size: clamp(6rem, 20vw, 22rem);
+  transform: rotate(-4deg);
+  transform-origin: left top;
 }
 .hero-decor-word--design {
-  bottom: 25%;
-  right: 7%;
-  font-size: clamp(3.5rem, 12vw, 12rem);
+  bottom: 2%;
+  right: -4%;
+  font-size: clamp(6rem, 22vw, 24rem);
+  transform: rotate(-2deg);
+  transform-origin: right bottom;
 }
 /* Keep hero text above the decor layer. (Scroll cue uses position:
    absolute from its own rule so it anchors to the hero bottom —
