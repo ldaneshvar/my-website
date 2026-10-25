@@ -33,8 +33,19 @@
     <div class="container portfolio__hero">
 
       <div class="portfolio__hero-decor" aria-hidden="true">
-        <span class="hero-decor-haze hero-decor-haze--marketing"></span>
-        <span class="hero-decor-haze hero-decor-haze--design"></span>
+        <svg class="hero-decor-art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <!-- 1. Thin elliptical arc partially framing 'Marketing' from
+               the upper-left, like a sweeping gesture. -->
+          <path d="M 40 320 A 460 300 0 0 1 620 100" stroke-width="0.8"/>
+          <!-- 2. Elongated outlined oval tilted through the Marketing area. -->
+          <ellipse cx="360" cy="210" rx="240" ry="44" stroke-width="0.6" transform="rotate(-12 360 210)"/>
+          <!-- 3. One delicate curve weaving diagonally across the composition. -->
+          <path d="M 120 480 C 480 540, 960 420, 1480 640" stroke-width="0.5"/>
+          <!-- 4. Incomplete L-shaped frame anchoring '& Design' in the lower-right. -->
+          <path d="M 920 600 L 920 820 L 1440 820" stroke-width="0.7"/>
+          <!-- 5. A second thin arc counter-balancing the lower-right. -->
+          <path d="M 1540 760 A 420 240 0 0 1 1060 600" stroke-width="0.8"/>
+        </svg>
         <span class="hero-decor-word hero-decor-word--marketing">Marketing</span>
         <span class="hero-decor-word hero-decor-word--design">&amp; Design</span>
       </div>

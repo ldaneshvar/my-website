@@ -1981,31 +1981,18 @@ em { font-style: italic; }
    independently so 'Marketing' always fits inside the viewport, while
    '& Design' is pushed off the right edge for an asymmetric layered
    editorial feel. */
-/* Soft faded-ink-wash haze behind the cursive words. A single blurred
-   radial glow in dark crimson, barely visible — just enough that the
-   script sits on a quiet atmospheric field rather than a flat background.
-   No blend mode, no grain overlay — kept intentionally minimal. */
-.hero-decor-haze {
+/* Experimental graphic-design linework layer behind the cursive words.
+   Thin dark-crimson arcs, an elongated oval, a diagonal weaving line,
+   and an incomplete rectangular frame — concentrated around 'Marketing'
+   (upper-left) and '& Design' (lower-right). No fills, no gradients,
+   no blurs. Scoped to this page via .hero-decor-art. */
+.hero-decor-art {
   position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(165, 20, 32, 0.42);
   pointer-events: none;
-  background:
-    radial-gradient(ellipse at center,
-      rgba(195, 25, 40, 0.08) 0%,
-      rgba(195, 25, 40, 0.03) 40%,
-      transparent 70%);
-  filter: blur(50px);
-}
-.hero-decor-haze--marketing {
-  top: -2%;
-  left: -5%;
-  width: 60%;
-  height: 40%;
-}
-.hero-decor-haze--design {
-  bottom: 0;
-  right: -5%;
-  width: 62%;
-  height: 44%;
 }
 
 /* Oversized gestural background typography. An expressive calligraphic
