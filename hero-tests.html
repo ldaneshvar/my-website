@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="color-scheme" content="dark">
+
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+
+<script>document.documentElement.classList.add('js');</script>
+
+<title>Hero concept tests · Lidia Daneshvar</title>
+<meta name="description" content="Internal design testing page: compare three homepage hero concepts.">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,30..100,0..1&family=Inter:wght@400;500;600&family=Allura&display=swap">
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+  /* ---------------------------------------------------------------
+     Test-page-only styles. All scoped under .hero-tests-page or
+     .hero-tests__option so nothing here can leak into production CSS. */
+
+  body.hero-tests-page { margin: 0; }
+
+  /* Only the active option renders */
+  .hero-tests__option { display: none; }
+  .hero-tests__option.is-active { display: block; }
+
+  /* Fixed floating selector in the top-right. */
+  .hero-tests__picker {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    background: rgba(10, 8, 6, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 245, 232, 0.15);
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .hero-tests__picker button {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: rgba(255, 245, 232, 0.5);
+    padding: 10px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    transition: color 180ms ease, background 180ms ease;
+  }
+  .hero-tests__picker button:hover,
+  .hero-tests__picker button:focus-visible {
+    color: #F5EFDF;
+    outline: none;
+  }
+  .hero-tests__picker button.is-active {
+    color: #0A0806;
+    background: #F5EFDF;
+  }
+
+  /* Caption beneath each hero preview — explains the creative direction. */
+  .hero-tests__caption {
+    max-width: 60ch;
+    margin: 0 auto;
+    padding: clamp(32px, 5vw, 56px) clamp(24px, 5vw, 48px) clamp(64px, 8vw, 96px);
+    color: #B8B1AD;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    text-align: center;
+  }
+  .hero-tests__caption .label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  /* ============================================================
+     OPTION 1 — TYPOGRAPHIC ELEGANCE
+     Dramatic asymmetric placement of cursive, more negative space,
+     no decorative shapes at all. */
+  .hero-tests__option--1 .hero-decor-word--marketing {
+    top: 6%;
+    left: auto;
+    right: -2%;
+    font-size: clamp(5rem, 18vw, 20rem);
+    transform: rotate(-2deg);
+    transform-origin: right top;
+    color: rgba(195, 25, 40, 0.1);
+  }
+  .hero-tests__option--1 .hero-decor-word--design {
+    top: auto;
+    bottom: 6%;
+    left: -2%;
+    right: auto;
+    font-size: clamp(5rem, 18vw, 20rem);
+    transform: rotate(-2deg);
+    transform-origin: left bottom;
+    color: rgba(195, 25, 40, 0.1);
+  }
+
+  /* ============================================================
+     OPTION 2 — FINE-LINE ILLUSTRATION
+     Thin camera-inspired contours and concentric rings integrated
+     with the cursive. */
+  .hero-tests__option--2 .hero-decor-word--marketing {
+    top: 10%; left: 3%;
+    font-size: clamp(4.5rem, 14vw, 15rem);
+    transform: rotate(-3deg);
+    color: rgba(195, 25, 40, 0.14);
+  }
+  .hero-tests__option--2 .hero-decor-word--design {
+    bottom: 12%; right: 3%;
+    font-size: clamp(4.5rem, 14vw, 15rem);
+    transform: rotate(-2deg);
+    color: rgba(195, 25, 40, 0.14);
+  }
+  .hero-tests__option--2 .fineline {
+    position: absolute;
+    pointer-events: none;
+    color: rgba(195, 25, 40, 0.55);
+  }
+  .hero-tests__option--2 .fineline path,
+  .hero-tests__option--2 .fineline circle,
+  .hero-tests__option--2 .fineline rect {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+  .hero-tests__option--2 .fineline--camera {
+    top: 20%;
+    right: 8%;
+    width: 180px; height: 130px;
+  }
+  .hero-tests__option--2 .fineline--rings {
+    bottom: 22%;
+    left: 6%;
+    width: 150px; height: 150px;
+  }
+
+  /* ============================================================
+     OPTION 3 — EXPERIMENTAL GRAPHIC DESIGN
+     Dramatic rotations, overlapping layers, and typographic
+     flourishes extending beyond the cursive. */
+  .hero-tests__option--3 .hero-decor-word--marketing {
+    top: 2%; left: -5%;
+    font-size: clamp(5rem, 20vw, 22rem);
+    transform: rotate(-8deg);
+    transform-origin: left top;
+    color: rgba(195, 25, 40, 0.14);
+  }
+  .hero-tests__option--3 .hero-decor-word--design {
+    bottom: 2%; right: -3%;
+    font-size: clamp(5rem, 18vw, 20rem);
+    transform: rotate(3deg);
+    transform-origin: right bottom;
+    color: rgba(195, 25, 40, 0.16);
+  }
+  .hero-tests__option--3 .exp-contour {
+    position: absolute;
+    pointer-events: none;
+    color: rgba(165, 20, 32, 0.55);
+  }
+  .hero-tests__option--3 .exp-contour path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+  .hero-tests__option--3 .exp-contour--arc {
+    top: 36%;
+    left: 48%;
+    width: 40%;
+    height: 28%;
+  }
+  .hero-tests__option--3 .exp-contour--flourish {
+    bottom: 36%;
+    left: 8%;
+    width: 32%;
+    height: 20%;
+  }
+  .hero-tests__option--3 .exp-vertical {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: left center;
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: rgba(205, 196, 184, 0.4);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body class="page-portfolio hero-tests-page">
+
+<!-- Selector pill -->
+<nav class="hero-tests__picker" aria-label="Switch concept">
+  <button type="button" data-option="1" class="is-active">Option 01</button>
+  <button type="button" data-option="2">Option 02</button>
+  <button type="button" data-option="3">Option 03</button>
+</nav>
+
+<main>
+
+  <!-- ===============================================================
+       OPTION 1 — TYPOGRAPHIC ELEGANCE
+       =============================================================== -->
+  <section class="hero-tests__option hero-tests__option--1 is-active" aria-labelledby="opt1-label">
+    <div class="container portfolio__hero">
+      <div class="portfolio__hero-decor" aria-hidden="true">
+        <span class="hero-decor-word hero-decor-word--marketing">Marketing</span>
+        <span class="hero-decor-word hero-decor-word--design">&amp; Design</span>
+      </div>
+      <p class="hero-marker hero-marker--top">Portfolio &nbsp;/&nbsp; 2026</p>
+      <p class="hero-marker hero-marker--bottom">San Francisco</p>
+      <header class="portfolio__header">
+        <h1 class="portfolio__title">Lidia Daneshvar</h1>
+      </header>
+      <p class="portfolio__intro">Blending visual storytelling, creative strategy, and thoughtful design to build memorable brand experiences.</p>
+      <a href="#opt1-label" class="portfolio__scroll-cue" aria-label="Below the hero">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 10 L12 16 L18 10"/>
+        </svg>
+      </a>
+    </div>
+    <div class="hero-tests__caption" id="opt1-label">
+      <span class="label">Option 01 &middot; Typographic Elegance</span>
+      Pure type. Cursive "Marketing" bleeds off the upper-right edge, "&amp; Design" mirrors it off the lower-left. No shapes, no illustrations &mdash; just dramatic asymmetric placement and generous negative space. Reads like the cover of a fashion-editorial issue.
+    </div>
+  </section>
+
+  <!-- ===============================================================
+       OPTION 2 — FINE-LINE ILLUSTRATION
+       =============================================================== -->
+  <section class="hero-tests__option hero-tests__option--2" aria-labelledby="opt2-label">
+    <div class="container portfolio__hero">
+      <div class="portfolio__hero-decor" aria-hidden="true">
+        <span class="hero-decor-word hero-decor-word--marketing">Marketing</span>
+        <span class="hero-decor-word hero-decor-word--design">&amp; Design</span>
+
+        <!-- Abstract fine-line camera contour, upper-right -->
+        <svg class="fineline fineline--camera" viewBox="0 0 180 130" aria-hidden="true">
+          <!-- Body -->
+          <rect x="10" y="30" width="160" height="90" rx="6"/>
+          <!-- Viewfinder bump -->
+          <path d="M72 30 L80 14 L120 14 L128 30"/>
+          <!-- Divider line across upper body -->
+          <path d="M10 50 L170 50"/>
+          <!-- Small flash dot -->
+          <path d="M28 42 L36 42"/>
+          <!-- Lens, concentric -->
+          <circle cx="100" cy="80" r="26"/>
+          <circle cx="100" cy="80" r="18"/>
+        </svg>
+
+        <!-- Concentric lens rings, lower-left -->
+        <svg class="fineline fineline--rings" viewBox="0 0 150 150" aria-hidden="true">
+          <circle cx="75" cy="75" r="68"/>
+          <circle cx="75" cy="75" r="52"/>
+          <circle cx="75" cy="75" r="32"/>
+        </svg>
+      </div>
+      <p class="hero-marker hero-marker--top">Portfolio &nbsp;/&nbsp; 2026</p>
+      <p class="hero-marker hero-marker--bottom">San Francisco</p>
+      <header class="portfolio__header">
+        <h1 class="portfolio__title">Lidia Daneshvar</h1>
+      </header>
+      <p class="portfolio__intro">Blending visual storytelling, creative strategy, and thoughtful design to build memorable brand experiences.</p>
+      <a href="#opt2-label" class="portfolio__scroll-cue" aria-label="Below the hero">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 10 L12 16 L18 10"/>
+        </svg>
+      </a>
+    </div>
+    <div class="hero-tests__caption" id="opt2-label">
+      <span class="label">Option 02 &middot; Fine-Line Illustration</span>
+      Borrows the thin-stroke camera motif from the Personal Projects page. A delicate camera silhouette sits upper-right, concentric lens rings anchor the lower-left. The lines interact with the cursive instead of floating around it &mdash; artistic, restrained, visually balanced.
+    </div>
+  </section>
+
+  <!-- ===============================================================
+       OPTION 3 — EXPERIMENTAL GRAPHIC DESIGN
+       =============================================================== -->
+  <section class="hero-tests__option hero-tests__option--3" aria-labelledby="opt3-label">
+    <div class="container portfolio__hero">
+      <div class="portfolio__hero-decor" aria-hidden="true">
+        <span class="hero-decor-word hero-decor-word--marketing">Marketing</span>
+        <span class="hero-decor-word hero-decor-word--design">&amp; Design</span>
+
+        <!-- Vertical masthead running up the left edge -->
+        <span class="exp-vertical">Lidia Daneshvar &middot; Portfolio 2026 &middot; Marketing &amp; Design</span>
+
+        <!-- Dramatic sweeping contour arc through the right side -->
+        <svg class="exp-contour exp-contour--arc" viewBox="0 0 400 280" aria-hidden="true" preserveAspectRatio="none">
+          <path d="M 10 260 C 90 180, 180 100, 310 60 S 400 20, 395 10"/>
+          <path d="M 10 240 C 90 180, 180 120, 310 90 S 400 60, 395 50"/>
+        </svg>
+
+        <!-- Typographic flourish extending from under '& Design' area -->
+        <svg class="exp-contour exp-contour--flourish" viewBox="0 0 320 200" aria-hidden="true" preserveAspectRatio="none">
+          <path d="M 10 100 Q 90 40, 160 80 T 310 60"/>
+          <path d="M 160 80 Q 200 130, 260 120"/>
+        </svg>
+      </div>
+      <p class="hero-marker hero-marker--top">Portfolio &nbsp;/&nbsp; 2026</p>
+      <p class="hero-marker hero-marker--bottom">San Francisco</p>
+      <header class="portfolio__header">
+        <h1 class="portfolio__title">Lidia Daneshvar</h1>
+      </header>
+      <p class="portfolio__intro">Blending visual storytelling, creative strategy, and thoughtful design to build memorable brand experiences.</p>
+      <a href="#opt3-label" class="portfolio__scroll-cue" aria-label="Below the hero">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 10 L12 16 L18 10"/>
+        </svg>
+      </a>
+    </div>
+    <div class="hero-tests__caption" id="opt3-label">
+      <span class="label">Option 03 &middot; Experimental Graphic Design</span>
+      Dramatic rotation on the cursive, a vertical masthead running up the left margin, paired sweeping arcs through the right side, and a typographic flourish anchoring the lower-left. Layered, asymmetric, and unexpectedly art-directed &mdash; built for a memorable first impression.
+    </div>
+  </section>
+
+</main>
+
+<script>
+  (function () {
+    const buttons = document.querySelectorAll('.hero-tests__picker button');
+    const options = document.querySelectorAll('.hero-tests__option');
+
+    function activate(n) {
+      buttons.forEach(b => b.classList.toggle('is-active', b.dataset.option === n));
+      options.forEach(o => o.classList.toggle('is-active', o.classList.contains('hero-tests__option--' + n)));
+      try { history.replaceState(null, '', '#option-' + n); } catch (_) {}
+      window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+    }
+
+    buttons.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.option)));
+
+    // Allow deep-linking to #option-2 / #option-3
+    const match = location.hash.match(/^#option-([123])$/);
+    if (match) activate(match[1]);
+  })();
+</script>
+
+</body>
+</html>
