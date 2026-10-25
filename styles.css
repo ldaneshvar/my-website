@@ -1992,7 +1992,7 @@ em { font-style: italic; }
   line-height: 1;
   white-space: nowrap;
   user-select: none;
-  color: rgba(195, 25, 40, 0.18);
+  color: rgba(195, 25, 40, 0.14);
 }
 
 /* Editorial corner markers — small letter-spaced labels in warm gray,
@@ -2012,16 +2012,16 @@ em { font-style: italic; }
 .hero-marker--top    { top: clamp(24px, 3vw, 40px); left: clamp(24px, 4vw, 56px); }
 .hero-marker--bottom { bottom: clamp(24px, 3vw, 40px); right: clamp(24px, 4vw, 56px); }
 .hero-decor-word--marketing {
-  top: 4%;
-  left: -1%;
-  font-size: clamp(5rem, 16vw, 18rem);
+  top: 10%;
+  left: 2%;
+  font-size: clamp(4.5rem, 14vw, 15rem);
   transform: rotate(-4deg);
   transform-origin: left top;
 }
 .hero-decor-word--design {
-  bottom: 8%;
-  right: 2%;
-  font-size: clamp(5rem, 17vw, 19rem);
+  bottom: 14%;
+  right: 7%;
+  font-size: clamp(4.5rem, 15vw, 16rem);
   transform: rotate(-2deg);
   transform-origin: right bottom;
 }
