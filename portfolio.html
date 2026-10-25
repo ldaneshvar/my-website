@@ -33,26 +33,25 @@
     <div class="container portfolio__hero">
 
       <div class="portfolio__hero-decor" aria-hidden="true">
-        <svg class="hero-decor-art" viewBox="0 0 100 100" preserveAspectRatio="none" fill="currentColor" stroke="none">
-          <!-- Two flat, dark-burgundy shapes concentrated around the
-               cursive words. Clean edges, no gradients. Positioned to
-               bleed off the corners for an editorial poster feel. -->
+        <svg class="hero-decor-art" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <!-- Three small, irregular editorial collage fragments. Angular
+               silhouettes with a mix of solid fill and negative-space
+               outline. All kept near the cursive words. -->
 
-          <!-- 1. Large irregular organic shape cropped by the top-left
-               corner, sitting behind 'Marketing'. -->
-          <path d="M -6 -4
-                   C 10 -6, 28 -2, 40 6
-                   Q 50 14 44 22
-                   Q 34 30 20 28
-                   Q 4 25 -6 16 Z"
-                opacity="0.65"/>
+          <!-- 1. Angular solid fragment, upper-left near the start of 'Marketing'. -->
+          <path d="M 2 11 L 13 6 L 15 15 L 8 21 L 2 18 Z"
+                fill="currentColor" opacity="0.7"/>
 
-          <!-- 2. Smaller partial semicircle hugging the lower-right corner,
-               complementing '& Design'. -->
-          <path d="M 100 68
-                   A 14 14 0 0 1 100 96
-                   L 100 68 Z"
-                opacity="0.55"/>
+          <!-- 2. Negative-space fragment: thin outline silhouette tucked
+               under the tail of 'Marketing' (angular, asymmetric). -->
+          <path d="M 32 25 L 46 20 L 50 28 L 36 30 Z"
+                fill="none" stroke="currentColor" stroke-width="1"
+                vector-effect="non-scaling-stroke" opacity="0.5"/>
+
+          <!-- 3. Asymmetric sculptural blade solid shape, bleeding off
+               the right edge next to '& Design'. -->
+          <path d="M 90 68 L 100 66 L 100 86 L 93 90 L 87 82 Z"
+                fill="currentColor" opacity="0.6"/>
         </svg>
         <span class="hero-decor-word hero-decor-word--marketing">Marketing</span>
         <span class="hero-decor-word hero-decor-word--design">&amp; Design</span>
