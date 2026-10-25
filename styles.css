@@ -1996,18 +1996,6 @@ em { font-style: italic; }
   color: rgba(195, 25, 40, 0.14);
 }
 
-/* Signature brand mark: a six-petal typographic asterisk, placed
-   sparingly as a recurring editorial motif. Thin tapered petals in
-   dark crimson, subtle enough to complement — not compete with — the
-   cursive and serif typography. */
-.hero-mark {
-  position: absolute;
-  color: rgba(165, 20, 32, 0.6);
-  pointer-events: none;
-}
-.hero-mark--1 { top: 32%; left: 51%; width: 16px; height: 16px; }
-.hero-mark--2 { bottom: 32%; right: 51%; width: 14px; height: 14px; opacity: 0.85; }
-
 /* Editorial corner markers — small letter-spaced labels in warm gray,
    placed in opposite corners so the hero reads as an art-directed
    composition, not just a title block. */
