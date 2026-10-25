@@ -33,26 +33,26 @@
     <div class="container portfolio__hero">
 
       <div class="portfolio__hero-decor" aria-hidden="true">
-        <svg class="hero-decor-art" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <!-- Three small accents, each contained near its cursive word.
-               vector-effect: non-scaling-stroke keeps hairlines consistent
-               even though the SVG is stretched non-uniformly. -->
+        <svg class="hero-decor-art" viewBox="0 0 100 100" preserveAspectRatio="none" fill="currentColor" stroke="none">
+          <!-- Two flat, dark-burgundy shapes concentrated around the
+               cursive words. Clean edges, no gradients. Positioned to
+               bleed off the corners for an editorial poster feel. -->
 
-          <!-- 1. Incomplete elliptical outline loosely tracing 'Marketing'
-               in the upper-left (opens on the right side). -->
-          <path d="M 46 9 A 25 11 0 1 1 2 23"
-                stroke-width="1" vector-effect="non-scaling-stroke"
-                opacity="0.75"/>
+          <!-- 1. Large irregular organic shape cropped by the top-left
+               corner, sitting behind 'Marketing'. -->
+          <path d="M -6 -4
+                   C 10 -6, 28 -2, 40 6
+                   Q 50 14 44 22
+                   Q 34 30 20 28
+                   Q 4 25 -6 16 Z"
+                opacity="0.65"/>
 
-          <!-- 2. Short partial arc tucked just above the '&' in '& Design'. -->
-          <path d="M 48 73 A 5 5 0 0 1 54 80"
-                stroke-width="1" vector-effect="non-scaling-stroke"
-                opacity="0.6"/>
-
-          <!-- 3. Delicate S-curve nestled against the right edge of 'Design'. -->
-          <path d="M 92 73 Q 96 80 93 88"
-                stroke-width="1" vector-effect="non-scaling-stroke"
-                opacity="0.5"/>
+          <!-- 2. Smaller partial semicircle hugging the lower-right corner,
+               complementing '& Design'. -->
+          <path d="M 100 68
+                   A 14 14 0 0 1 100 96
+                   L 100 68 Z"
+                opacity="0.55"/>
         </svg>
         <span class="hero-decor-word hero-decor-word--marketing">Marketing</span>
         <span class="hero-decor-word hero-decor-word--design">&amp; Design</span>

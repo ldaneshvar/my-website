@@ -1981,16 +1981,16 @@ em { font-style: italic; }
    independently so 'Marketing' always fits inside the viewport, while
    '& Design' is pushed off the right edge for an asymmetric layered
    editorial feel. */
-/* Compact graphic-design accents, each contained near its cursive word.
-   One incomplete ellipse loosely traces 'Marketing' upper-left; a partial
-   arc + an s-curve sit against '& Design' lower-right. No fills, no
-   gradients, no blurs. The central area around the name is kept clear. */
+/* Flat dark-burgundy shapes concentrated around the cursive words.
+   Clean edges, no gradients. The large shape bleeds off the top-left
+   corner behind 'Marketing', the smaller shape hugs the lower-right
+   corner near '& Design'. The central area around the name stays clear. */
 .hero-decor-art {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  color: rgba(165, 20, 32, 0.6);
+  color: rgba(90, 18, 28, 0.55);
   pointer-events: none;
 }
 
