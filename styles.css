@@ -2411,6 +2411,17 @@ em { font-style: italic; }
   max-width: 44ch;
   color: var(--ink-muted);
 }
+
+/* In --flip rows the text block is right-aligned, so the attachment
+   link's narrow max-width leaves it floating at the left of the column.
+   Push its block to the right so it tucks under the right edge of the
+   description, closer to the photo. */
+@media (min-width: 800px) {
+  .portfolio__spread-row--flip:not(.portfolio__spread-row--vertical) .portfolio__spread-attachment {
+    margin-left: auto;
+    text-align: right;
+  }
+}
 .portfolio__spread-attachment a {
   color: var(--ink);
   text-decoration: underline;
