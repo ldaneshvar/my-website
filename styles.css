@@ -1994,6 +1994,12 @@ em { font-style: italic; }
   white-space: nowrap;
   user-select: none;
   color: rgba(220, 75, 90, 0.42);
+  pointer-events: auto;
+  cursor: default;
+  transition: color 0.45s ease;
+}
+.hero-decor-word:hover {
+  color: rgba(245, 115, 130, 0.78);
 }
 
 /* Editorial corner markers — small letter-spaced labels in warm gray,
